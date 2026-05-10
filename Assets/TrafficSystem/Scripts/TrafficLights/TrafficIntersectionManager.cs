@@ -3,84 +3,61 @@ using UnityEngine;
 
 namespace MyTrafficSystem.TrafficLights
 {
+    [DisallowMultipleComponent]
     public class TrafficIntersectionManager : MonoBehaviour
     {
-        [System.Serializable]
-        public class IntersectionPhase
+        [SerializeField] private List<TrafficLightGroup> groups = new List<TrafficLightGroup>();
+        [SerializeField] private int startGreenGroupIndex = 0;
+
+        private void Awake()
         {
-            public string phaseName = "Phase";
-            public float duration = 10f;
-            public List<TrafficLightGroup> greenGroups = new List<TrafficLightGroup>();
-            public List<TrafficLightGroup> redGroups = new List<TrafficLightGroup>();
-            public bool pedestrianPhase;
-        }
+            if (groups.Count == 0)
+            {
+                groups.AddRange(GetComponentsInChildren<TrafficLightGroup>(true));
+            }
 
-        [SerializeField] private bool runOnStart = true;
-        [SerializeField] private float yellowTransitionDuration = 2f;
-        [SerializeField] private List<IntersectionPhase> phases = new List<IntersectionPhase>();
-
-        private int currentPhaseIndex;
-        private float timer;
-        private bool inYellowTransition;
-
-        private void Start()
-        {
-            if (!runOnStart || phases.Count == 0) { return; }
-            ApplyPhase(0);
+            CleanupNullGroups();
+            if (groups.Count == 0) { return; }
+            SetGroupGreen(Mathf.Clamp(startGreenGroupIndex, 0, groups.Count - 1));
         }
 
         private void Update()
         {
-            if (phases.Count == 0) { return; }
-            timer -= Time.deltaTime;
-            if (timer > 0f) { return; }
-
-            if (!inYellowTransition)
+            for (int i = 0; i < groups.Count; i++)
             {
-                SetCurrentGreenToYellow();
-                inYellowTransition = true;
-                timer = Mathf.Max(0.5f, yellowTransitionDuration);
-                return;
-            }
-
-            int next = (currentPhaseIndex + 1) % phases.Count;
-            ApplyPhase(next);
-        }
-
-        private void SetCurrentGreenToYellow()
-        {
-            IntersectionPhase phase = phases[currentPhaseIndex];
-            for (int i = 0; i < phase.greenGroups.Count; i++)
-            {
-                TrafficLightGroup group = phase.greenGroups[i];
-                if (group != null) { group.SetState(TrafficLightState.Yellow); }
-            }
-        }
-
-        private void ApplyPhase(int index)
-        {
-            currentPhaseIndex = index;
-            IntersectionPhase phase = phases[currentPhaseIndex];
-            inYellowTransition = false;
-            timer = Mathf.Max(1f, phase.duration);
-
-            for (int i = 0; i < phase.greenGroups.Count; i++)
-            {
-                TrafficLightGroup group = phase.greenGroups[i];
-                if (group != null)
+                TrafficLightGroup group = groups[i];
+                if (group != null && group.MatchesKeyDown())
                 {
-                    group.SetState(TrafficLightState.Green);
-                    group.AssignStateToLanes();
+                    SetGroupGreen(i);
+                    return;
                 }
             }
+        }
 
-            for (int i = 0; i < phase.redGroups.Count; i++)
+        public void RegisterGroup(TrafficLightGroup group)
+        {
+            if (group == null || groups.Contains(group)) { return; }
+            groups.Add(group);
+        }
+
+        public void SetGroupGreen(int greenIndex)
+        {
+            CleanupNullGroups();
+            for (int i = 0; i < groups.Count; i++)
             {
-                TrafficLightGroup group = phase.redGroups[i];
-                if (group != null)
+                bool isGreen = i == greenIndex;
+                groups[i].SetGreen(isGreen);
+                groups[i].AssignStateToLanes();
+            }
+        }
+
+        private void CleanupNullGroups()
+        {
+            for (int i = groups.Count - 1; i >= 0; i--)
+            {
+                if (groups[i] == null)
                 {
-                    group.SetState(TrafficLightState.Red);
-                    group.AssignStateToLanes();
+                    groups.RemoveAt(i);
                 }
             }
         }

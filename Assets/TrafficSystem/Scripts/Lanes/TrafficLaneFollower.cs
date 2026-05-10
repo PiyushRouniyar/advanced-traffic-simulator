@@ -72,6 +72,11 @@ namespace MyTrafficSystem.Lanes
             Quaternion look = Quaternion.LookRotation(toTarget.normalized, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, look, steeringLerp * Time.deltaTime);
 
+            if (currentLane.ShouldStopAtLight(currentIndex))
+            {
+                return;
+            }
+
             float speed = speedOverride > 0f ? speedOverride : currentLane.SpeedLimit;
             transform.position += transform.forward * speed * Time.deltaTime;
 

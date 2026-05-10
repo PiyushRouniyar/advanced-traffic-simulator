@@ -10,15 +10,23 @@ namespace MyTrafficSystem.TrafficLights
         [SerializeField] private bool autoCycleWhenNotPlayerControlled;
         [SerializeField] private KeyCode keyboardToggleKey = KeyCode.None;
 
+        [Header("Timing")]
         [SerializeField] private float redTime = 8f;
         [SerializeField] private float yellowTime = 2f;
         [SerializeField] private float greenTime = 8f;
         [SerializeField] private TrafficLightState startState = TrafficLightState.Red;
         [SerializeField] private bool stopOnYellow = true;
 
+        [Header("Visual (Optional)")]
+        [SerializeField] private Renderer redRenderer;
+        [SerializeField] private Renderer yellowRenderer;
+        [SerializeField] private Renderer greenRenderer;
+        [SerializeField] private float emissionIntensity = 2.2f;
+
         public TrafficLightState CurrentState { get; private set; }
         public bool ShouldStopCars => CurrentState == TrafficLightState.Red || (stopOnYellow && CurrentState == TrafficLightState.Yellow);
         public bool ShouldStopCarsNow() => ShouldStopCars;
+        public KeyCode KeyboardToggleKey => keyboardToggleKey;
 
         private float timer;
 
@@ -67,12 +75,25 @@ namespace MyTrafficSystem.TrafficLights
             SetState(state);
         }
 
+        public void SetKeyboardToggleKey(KeyCode key)
+        {
+            keyboardToggleKey = key;
+            playerControlled = key != KeyCode.None;
+        }
+
         public void SetRed() => SetState(TrafficLightState.Red);
         public void SetYellow() => SetState(TrafficLightState.Yellow);
         public void SetGreen() => SetState(TrafficLightState.Green);
 
         private void CycleState()
         {
+            // Keep player control simple and gameplay-focused: toggle between stop/go.
+            if (playerControlled)
+            {
+                SetState(CurrentState == TrafficLightState.Red ? TrafficLightState.Green : TrafficLightState.Red);
+                return;
+            }
+
             if (CurrentState == TrafficLightState.Red)
             {
                 SetState(TrafficLightState.Green);
@@ -102,6 +123,28 @@ namespace MyTrafficSystem.TrafficLights
             {
                 timer = Mathf.Max(0.2f, greenTime);
             }
+
+            ApplyVisuals();
+        }
+
+        private void ApplyVisuals()
+        {
+            SetLamp(redRenderer, CurrentState == TrafficLightState.Red ? Color.red : Color.black);
+            SetLamp(yellowRenderer, CurrentState == TrafficLightState.Yellow ? Color.yellow : Color.black);
+            SetLamp(greenRenderer, CurrentState == TrafficLightState.Green ? Color.green : Color.black);
+        }
+
+        private void SetLamp(Renderer rendererTarget, Color color)
+        {
+            if (rendererTarget == null)
+            {
+                return;
+            }
+
+            MaterialPropertyBlock block = new MaterialPropertyBlock();
+            rendererTarget.GetPropertyBlock(block);
+            block.SetColor("_EmissionColor", color * emissionIntensity);
+            rendererTarget.SetPropertyBlock(block);
         }
 
         private void OnDrawGizmos()
