@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "ADV Traffic Simulator.sln"
+    "dotnet.defaultSolution": "advanced-traffic-simulator.slnx"
 }
