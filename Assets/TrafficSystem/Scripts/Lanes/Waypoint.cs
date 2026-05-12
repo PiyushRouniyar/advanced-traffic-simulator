@@ -20,6 +20,7 @@ namespace MyTrafficSystem.Lanes
 
         private void OnDrawGizmos()
         {
+            if (!TrafficDebugSettings.ShowTrafficDebug) { return; }
             Color c = Color.white;
             if (owner != null)
             {

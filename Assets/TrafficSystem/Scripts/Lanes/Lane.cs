@@ -141,6 +141,7 @@ namespace MyTrafficSystem.Lanes
 
         private void OnDrawGizmos()
         {
+            if (!TrafficDebugSettings.ShowTrafficDebug) { return; }
             CleanupDestroyedReferences();
             if (!drawLane || waypoints.Count < 2) { return; }
 

@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using MyTrafficSystem.Pedestrians;
+using MyTrafficSystem.Lanes;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,6 +17,19 @@ namespace MyTrafficSystem.EditorTools
         private static void OnSceneGui(SceneView view)
         {
             Event e = Event.current;
+            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.F1)
+            {
+                TrafficDebugSettings.ToggleTrafficDebug();
+                SceneView.RepaintAll();
+                e.Use();
+                return;
+            }
+
+            if (!TrafficDebugSettings.ShowTrafficDebug)
+            {
+                return;
+            }
+
             if (e.alt || e.button == 1 || e.button == 2 || e.type == EventType.ScrollWheel)
             {
                 return;
