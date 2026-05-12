@@ -1,4 +1,5 @@
 using MyTrafficSystem.Lanes;
+using MyTrafficSystem.Pedestrians;
 using UnityEngine;
 
 namespace MyTrafficSystem.AI
@@ -14,6 +15,7 @@ namespace MyTrafficSystem.AI
         [SerializeField] private float speed = 10f;
         [SerializeField] private float turnSpeed = 6f;
         [SerializeField] private float detectionDistance = 8f;
+        [SerializeField] private float crosswalkStopDistance = 7f;
         [SerializeField] private float waypointReachDistance = 1.2f;
         [SerializeField] private float minTurnSpeedFactor = 0.35f;
 
@@ -94,6 +96,7 @@ namespace MyTrafficSystem.AI
 
             bool stopForLight = currentLane.ShouldStopAtLight(waypointIndex);
             bool stopForCar = DetectCarAhead(out float hitDistance);
+            bool stopForCrosswalk = PedestrianCrossingZone.IsCrosswalkBlockingCars(transform.position, transform.forward, crosswalkStopDistance);
 
             float turnSlowFactor = Mathf.Lerp(1f, minTurnSpeedFactor, Mathf.InverseLerp(20f, 90f, turnAngle));
             float desiredSpeed = Mathf.Min(speed, currentLane.Speed) * turnSlowFactor;
@@ -102,8 +105,9 @@ namespace MyTrafficSystem.AI
                 desiredSpeed *= Mathf.Clamp01(hitDistance / Mathf.Max(0.1f, detectionDistance));
             }
 
-            float accel = stopForLight || stopForCar ? 10f : 6f;
-            currentSpeed = Mathf.MoveTowards(currentSpeed, stopForLight ? 0f : desiredSpeed, accel * Time.fixedDeltaTime);
+            bool shouldStop = stopForLight || stopForCar || stopForCrosswalk;
+            float accel = shouldStop ? 10f : 6f;
+            currentSpeed = Mathf.MoveTowards(currentSpeed, shouldStop ? 0f : desiredSpeed, accel * Time.fixedDeltaTime);
 
             Vector3 velocity = transform.forward * currentSpeed;
             velocity.y = rb.linearVelocity.y;

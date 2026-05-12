@@ -7,6 +7,8 @@ namespace MyTrafficSystem.TrafficLights
     [DisallowMultipleComponent]
     public class TrafficLightGroup : MonoBehaviour
     {
+        private enum AutoPhase { Green, Yellow, Red }
+
         [Header("Setup")]
         [SerializeField] private string groupName = "Group";
         public KeyCode assignedKey = KeyCode.Alpha1;
@@ -15,14 +17,32 @@ namespace MyTrafficSystem.TrafficLights
         [SerializeField] private List<TrafficLightController> controlledLights = new List<TrafficLightController>();
         [SerializeField] private int defaultStopWaypointIndex = 0;
 
+        [Header("Auto Timer")]
+        [SerializeField] private bool autoSwitch;
+        [SerializeField] private float greenDuration = 20f;
+        [SerializeField] private float yellowDuration = 3f;
+        [SerializeField] private float redDuration = 20f;
+        [SerializeField] private TrafficLightGroup oppositeGroup;
+        [SerializeField] private bool showDebugCountdown = true;
+
         public bool IsGreen { get; private set; } = true;
         public string GroupName => groupName;
         public KeyCode ActivationKey => assignedKey;
+        public float RemainingTime => Mathf.Max(0f, phaseTimer);
+
+        private AutoPhase phase;
+        private float phaseTimer;
 
         private void Awake()
         {
-            IsGreen = startGreen;
-            ApplyVisualState();
+            if (startGreen)
+            {
+                SetPhase(AutoPhase.Green);
+            }
+            else
+            {
+                SetPhase(AutoPhase.Red);
+            }
             AssignStateToLanes();
         }
 
@@ -31,6 +51,11 @@ namespace MyTrafficSystem.TrafficLights
             if (assignedKey != KeyCode.None && Input.GetKeyDown(assignedKey))
             {
                 ToggleGroupState();
+            }
+
+            if (autoSwitch)
+            {
+                TickAutoTimer();
             }
         }
 
@@ -52,8 +77,7 @@ namespace MyTrafficSystem.TrafficLights
 
         public void SetGreen(bool green)
         {
-            IsGreen = green;
-            ApplyVisualState();
+            SetPhase(green ? AutoPhase.Green : AutoPhase.Red);
         }
 
         public void SetState(TrafficLightState state)
@@ -111,7 +135,99 @@ namespace MyTrafficSystem.TrafficLights
 
         private void ApplyVisualState()
         {
-            SetListState(controlledLights, IsGreen ? TrafficLightState.Green : TrafficLightState.Red);
+            if (phase == AutoPhase.Green)
+            {
+                SetListState(controlledLights, TrafficLightState.Green);
+            }
+            else if (phase == AutoPhase.Yellow)
+            {
+                SetListState(controlledLights, TrafficLightState.Yellow);
+            }
+            else
+            {
+                SetListState(controlledLights, TrafficLightState.Red);
+            }
+        }
+
+        private void TickAutoTimer()
+        {
+            phaseTimer -= Time.deltaTime;
+            if (phaseTimer > 0f)
+            {
+                return;
+            }
+
+            if (phase == AutoPhase.Green)
+            {
+                SetPhase(AutoPhase.Yellow);
+            }
+            else if (phase == AutoPhase.Yellow)
+            {
+                SetPhase(AutoPhase.Red);
+            }
+            else
+            {
+                SetPhase(AutoPhase.Green);
+            }
+
+            AssignStateToLanes();
+        }
+
+        private void SetPhase(AutoPhase newPhase)
+        {
+            phase = newPhase;
+
+            if (phase == AutoPhase.Green)
+            {
+                IsGreen = true;
+                phaseTimer = Mathf.Max(0.5f, greenDuration);
+                if (oppositeGroup != null)
+                {
+                    oppositeGroup.SetPhaseFromOpposite(AutoPhase.Red);
+                }
+            }
+            else if (phase == AutoPhase.Yellow)
+            {
+                IsGreen = false;
+                phaseTimer = Mathf.Max(0.5f, yellowDuration);
+                if (oppositeGroup != null)
+                {
+                    oppositeGroup.SetPhaseFromOpposite(AutoPhase.Red);
+                }
+            }
+            else
+            {
+                IsGreen = false;
+                phaseTimer = Mathf.Max(0.5f, redDuration);
+                if (oppositeGroup != null)
+                {
+                    oppositeGroup.SetPhaseFromOpposite(AutoPhase.Green);
+                }
+            }
+
+            ApplyVisualState();
+        }
+
+        private void SetPhaseFromOpposite(AutoPhase newPhase)
+        {
+            phase = newPhase;
+            IsGreen = newPhase == AutoPhase.Green;
+            phaseTimer = newPhase == AutoPhase.Green ? Mathf.Max(0.5f, greenDuration) :
+                        newPhase == AutoPhase.Yellow ? Mathf.Max(0.5f, yellowDuration) :
+                        Mathf.Max(0.5f, redDuration);
+            ApplyVisualState();
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (!showDebugCountdown)
+            {
+                return;
+            }
+
+            Gizmos.color = Color.white;
+            Vector3 p = transform.position + Vector3.up * 3.2f;
+            Gizmos.DrawSphere(p, 0.08f);
         }
     }
 }
