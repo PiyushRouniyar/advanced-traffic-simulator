@@ -29,6 +29,9 @@ namespace MyTrafficSystem.TrafficLights
         public string GroupName => groupName;
         public KeyCode ActivationKey => assignedKey;
         public float RemainingTime => Mathf.Max(0f, phaseTimer);
+        public TrafficLightState DebugState => phase == AutoPhase.Green ? TrafficLightState.Green :
+                                               phase == AutoPhase.Yellow ? TrafficLightState.Yellow :
+                                               TrafficLightState.Red;
 
         private AutoPhase phase;
         private float phaseTimer;
