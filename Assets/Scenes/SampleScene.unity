@@ -2169,8 +2169,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 29482856}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &29482855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 29482854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &29482856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29482855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 263
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &29716993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4023,8 +4055,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 47228265}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &47228264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 47228263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &47228265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47228264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 262
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &48102431
 GameObject:
   m_ObjectHideFlags: 0
@@ -11300,8 +11364,8 @@ MonoBehaviour:
   laneName: Lane_04
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 957429661}
+  stopWaypointIndex: 13
   canCarsPass: 1
   laneColor: {r: 0, g: 0.36082807, b: 0.381132, a: 1}
   drawLane: 1
@@ -11523,8 +11587,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 152717004}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &152717003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 152717002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &152717004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152717003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 261
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &154080103
 GameObject:
   m_ObjectHideFlags: 0
@@ -12157,8 +12253,8 @@ MonoBehaviour:
   laneName: Lane_08
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 228147888}
+  stopWaypointIndex: 6
   canCarsPass: 1
   laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
   drawLane: 1
@@ -15760,8 +15856,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 213205207}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &213205206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 213205205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &213205207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213205206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 48
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &213743549
 GameObject:
   m_ObjectHideFlags: 0
@@ -16741,7 +16869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
   playerControlled: 1
   autoCycleWhenNotPlayerControlled: 0
-  keyboardToggleKey: 49
+  keyboardToggleKey: 54
   redTime: 8
   yellowTime: 2
   greenTime: 8
@@ -17104,8 +17232,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 228147888}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &228147887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 228147886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &228147888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228147887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 262
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &229310754
 GameObject:
   m_ObjectHideFlags: 0
@@ -22993,8 +23153,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 322663773}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &322663772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 322663771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &322663773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322663772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 56
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1001 &322946675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24745,8 +24937,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 348183771}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &348183770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 348183769}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &348183771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348183770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 286
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &348776022
 GameObject:
   m_ObjectHideFlags: 0
@@ -29630,8 +29854,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 416466749}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &416466748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 416466747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &416466749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416466748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 55
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &418039570
 GameObject:
   m_ObjectHideFlags: 0
@@ -29908,8 +30164,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 418909840}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &418909839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 418909838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &418909840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418909839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 265
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1001 &420259807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30399,8 +30687,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 427165994}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &427165993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 427165992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &427165994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427165993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 265
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &427692173
 GameObject:
   m_ObjectHideFlags: 0
@@ -34401,8 +34721,8 @@ MonoBehaviour:
   laneName: Lane_19
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 427165994}
+  stopWaypointIndex: 27
   canCarsPass: 1
   laneColor: {r: 0, g: 1, b: 0.5869651, a: 1}
   drawLane: 1
@@ -34786,63 +35106,6 @@ Transform:
   - {fileID: 293827598}
   m_Father: {fileID: 220831120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &485821695
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (35)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.120015
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.14703497
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 80.666115
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &486581844
 GameObject:
   m_ObjectHideFlags: 0
@@ -36827,8 +37090,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 520663766}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &520663765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 520663764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &520663766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520663765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 260
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &520982192
 GameObject:
   m_ObjectHideFlags: 0
@@ -37133,63 +37428,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522480941}
   m_Mesh: {fileID: -4931521758496453707, guid: ec267df9d58af224e96deddfec326811, type: 3}
---- !u!1001 &523067856
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (19)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 159.43597
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.17763297
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 180.54726
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &523293272
 GameObject:
   m_ObjectHideFlags: 0
@@ -39717,8 +39955,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 547815697}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &547815696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 547815695}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &547815697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547815696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 285
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &547958089
 GameObject:
   m_ObjectHideFlags: 0
@@ -42724,8 +42994,8 @@ MonoBehaviour:
   laneName: Lane_38
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 2043901280}
+  stopWaypointIndex: 0
   canCarsPass: 1
   laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
   drawLane: 1
@@ -48796,8 +49066,8 @@ MonoBehaviour:
   laneName: Lane_14
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 322663773}
+  stopWaypointIndex: 11
   canCarsPass: 1
   laneColor: {r: 1, g: 0, b: 0.7880125, a: 1}
   drawLane: 1
@@ -49366,8 +49636,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 644118674}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &644118673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 644118672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &644118674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644118673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 258
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1001 &645814789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50524,8 +50826,8 @@ MonoBehaviour:
   laneName: Lane_30
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 29482856}
+  stopWaypointIndex: 0
   canCarsPass: 1
   laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
   drawLane: 1
@@ -54391,8 +54693,8 @@ MonoBehaviour:
   laneName: Lane_17
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 418909840}
+  stopWaypointIndex: 40
   canCarsPass: 1
   laneColor: {r: 1, g: 0, b: 0.9976435, a: 1}
   drawLane: 1
@@ -57887,8 +58189,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 764780230}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &764780229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 764780228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &764780230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764780229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 259
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &765065974
 GameObject:
   m_ObjectHideFlags: 0
@@ -64793,8 +65127,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 861623238}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &861623237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 861623236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &861623238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861623237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 262
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &862869273
 GameObject:
   m_ObjectHideFlags: 0
@@ -65317,8 +65683,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 870907231}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &870907230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 870907229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &870907231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870907230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 261
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &871007673
 GameObject:
   m_ObjectHideFlags: 0
@@ -65757,8 +66155,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 881739067}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &881739066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 881739065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &881739067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881739066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 263
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &887371649
 GameObject:
   m_ObjectHideFlags: 0
@@ -69097,8 +69527,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 943836182}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &943836181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 943836180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &943836182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943836181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 287
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &945864500
 GameObject:
   m_ObjectHideFlags: 0
@@ -69638,63 +70100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 148489096}
   index: 1
---- !u!1001 &955514307
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -168.46643
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.14999872
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 190.51323
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &956112545
 GameObject:
   m_ObjectHideFlags: 0
@@ -69912,8 +70317,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 957429661}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &957429660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 957429659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &957429661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957429660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 288
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &959206757
 GameObject:
   m_ObjectHideFlags: 0
@@ -73819,8 +74256,8 @@ MonoBehaviour:
   laneName: Lane_13
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 1720974731}
+  stopWaypointIndex: 6
   canCarsPass: 1
   laneColor: {r: 1, g: 0, b: 0, a: 1}
   drawLane: 1
@@ -76016,8 +76453,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1045533932}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1045533931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1045533930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1045533932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045533931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 259
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1046870626
 GameObject:
   m_ObjectHideFlags: 0
@@ -76110,63 +76579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 715443636}
   index: 24
---- !u!1001 &1047353004
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -139.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 184.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99995434
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0037851827
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.008779991
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.000033236996
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.434
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -1.006
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.008
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1001 &1047618869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76222,8 +76634,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1047618871}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1047618870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1047618869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1047618871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047618870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 57
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1052506399
 GameObject:
   m_ObjectHideFlags: 0
@@ -81198,8 +81642,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129434653}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1129434652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1129434651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129434653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129434652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 262
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1129889686
 GameObject:
   m_ObjectHideFlags: 0
@@ -84926,8 +85402,8 @@ MonoBehaviour:
   laneName: Lane_03
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 1342483493}
+  stopWaypointIndex: 13
   canCarsPass: 1
   laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
   drawLane: 1
@@ -89191,8 +89667,8 @@ MonoBehaviour:
   laneName: Lane_02
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 943836182}
+  stopWaypointIndex: 5
   canCarsPass: 1
   laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
   drawLane: 1
@@ -90770,8 +91246,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1268400843}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1268400842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1268400841}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1268400843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268400842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 264
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1269156573
 GameObject:
   m_ObjectHideFlags: 0
@@ -91261,63 +91769,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275902392}
   m_Mesh: {fileID: -4931521758496453707, guid: ec267df9d58af224e96deddfec326811, type: 3}
---- !u!1001 &1278722778
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (26)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 140.7842
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1500003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -179.0874
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &1279042074
 GameObject:
   m_ObjectHideFlags: 0
@@ -95556,8 +96007,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1327916780}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1327916779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1327916778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1327916780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327916779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 263
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1331511072
 GameObject:
   m_ObjectHideFlags: 0
@@ -96872,8 +97355,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1342483493}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1342483492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1342483491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1342483493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342483492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 285
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1344999207
 GameObject:
   m_ObjectHideFlags: 0
@@ -99371,8 +99886,8 @@ MonoBehaviour:
   laneName: Lane_09
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 348183771}
+  stopWaypointIndex: 11
   canCarsPass: 1
   laneColor: {r: 0.4339623, g: 0, b: 0.109518595, a: 1}
   drawLane: 1
@@ -100292,63 +100807,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377249977}
   m_Mesh: {fileID: 4300000, guid: fd764d7ff467f8a47bf0105bd3bdb236, type: 3}
---- !u!1001 &1377954857
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (24)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 169.23375
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.15000105
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -190.43591
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1001 &1379448830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101741,63 +102199,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402893374}
   m_Mesh: {fileID: 4300006, guid: 830250c7afc461b4da411ae9af734920, type: 3}
---- !u!1001 &1403957626
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (13)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -159.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.15000297
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -181.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &1404228852
 GameObject:
   m_ObjectHideFlags: 0
@@ -103500,8 +103901,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425066402}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1425066401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1425066400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425066402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425066401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 286
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1425110941
 GameObject:
   m_ObjectHideFlags: 0
@@ -109928,8 +110361,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1518947202}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1518947201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1518947200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1518947202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518947201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 257
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1520936975
 GameObject:
   m_ObjectHideFlags: 0
@@ -110121,8 +110586,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1522815156}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1522815155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1522815154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1522815156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522815155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 53
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1525568815
 GameObject:
   m_ObjectHideFlags: 0
@@ -110536,8 +111033,8 @@ MonoBehaviour:
   laneName: Lane_34
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 2044886282}
+  stopWaypointIndex: 0
   canCarsPass: 1
   laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
   drawLane: 1
@@ -118941,8 +119438,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1651722577}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1651722576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1651722575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1651722577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651722576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 256
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1652763030
 GameObject:
   m_ObjectHideFlags: 0
@@ -124130,63 +124659,6 @@ Transform:
   - {fileID: 1159049292}
   m_Father: {fileID: 1331537157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1714137097
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (18)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -359.02252
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.13463138
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 17.196589
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 540
-      objectReference: {fileID: 0}
-    - target: {fileID: 7366244716199855663, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &1714661005
 GameObject:
   m_ObjectHideFlags: 0
@@ -124675,8 +125147,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1720974731}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1720974730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1720974729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1720974731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720974730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 52
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1721529983
 GameObject:
   m_ObjectHideFlags: 0
@@ -125323,8 +125827,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1733692879}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1733692878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1733692877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1733692879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733692878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 50
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1733885593
 GameObject:
   m_ObjectHideFlags: 0
@@ -126973,8 +127509,8 @@ MonoBehaviour:
   laneName: Lane_21
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 644118674}
+  stopWaypointIndex: 1
   canCarsPass: 1
   laneColor: {r: 1, g: 0.47671467, b: 0, a: 1}
   drawLane: 1
@@ -137691,8 +138227,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1924586444}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &1924586443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 1924586442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1924586444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924586443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 260
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &1925070734
 GameObject:
   m_ObjectHideFlags: 0
@@ -137771,8 +138339,8 @@ MonoBehaviour:
   laneName: Lane_01
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 547815697}
+  stopWaypointIndex: 6
   canCarsPass: 1
   laneColor: {r: 0, g: 0.4188679, b: 0.38644892, a: 1}
   drawLane: 1
@@ -142993,8 +143561,8 @@ MonoBehaviour:
   laneName: Lane_12
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 1425066402}
+  stopWaypointIndex: 24
   canCarsPass: 1
   laneColor: {r: 1, g: 0, b: 0.05116701, a: 1}
   drawLane: 1
@@ -143864,8 +144432,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2012722928}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &2012722927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 2012722926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2012722928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012722927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 51
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &2012760261
 GameObject:
   m_ObjectHideFlags: 0
@@ -145600,8 +146200,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2043901280}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &2043901279 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 2043901278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2043901280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043901279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 265
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1001 &2044886280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145657,8 +146289,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2044886282}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &2044886281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 2044886280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2044886282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044886281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 260
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &2045377279
 GameObject:
   m_ObjectHideFlags: 0
@@ -149152,8 +149816,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2098421232}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+--- !u!1 &2098421231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+  m_PrefabInstance: {fileID: 2098421230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2098421232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098421231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
+  playerControlled: 1
+  autoCycleWhenNotPlayerControlled: 0
+  keyboardToggleKey: 264
+  redTime: 8
+  yellowTime: 2
+  greenTime: 8
+  startState: 0
+  stopOnYellow: 1
+  redRenderer: {fileID: 0}
+  yellowRenderer: {fileID: 0}
+  greenRenderer: {fileID: 0}
+  emissionIntensity: 2.2
 --- !u!1 &2099387187
 GameObject:
   m_ObjectHideFlags: 0
@@ -149358,8 +150054,8 @@ MonoBehaviour:
   laneName: Lane_25
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 47228265}
+  stopWaypointIndex: 1
   canCarsPass: 1
   laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
   drawLane: 1
@@ -152003,8 +152699,8 @@ MonoBehaviour:
   laneName: Lane_22
   speed: 10
   loop: 0
-  trafficLight: {fileID: 0}
-  stopWaypointIndex: -1
+  trafficLight: {fileID: 1651722577}
+  stopWaypointIndex: 1
   canCarsPass: 1
   laneColor: {r: 0.06654072, g: 1, b: 0, a: 1}
   drawLane: 1
@@ -153176,95 +153872,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146322091}
   m_Mesh: {fileID: 6385602932717552147, guid: ec267df9d58af224e96deddfec326811, type: 3}
---- !u!1 &2539229520405919485 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8983587302607995171, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-  m_PrefabInstance: {fileID: 7684347694923203114}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7366244716075501790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2539229520405919485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b1343387bf6cd4d8fb4e2bc29734e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
-  playerControlled: 1
-  autoCycleWhenNotPlayerControlled: 0
-  keyboardToggleKey: 49
-  redTime: 8
-  yellowTime: 2
-  greenTime: 8
-  startState: 0
-  stopOnYellow: 1
-  redRenderer: {fileID: 0}
-  yellowRenderer: {fileID: 0}
-  greenRenderer: {fileID: 0}
-  emissionIntensity: 2.2
---- !u!1001 &7684347694923203114
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -130.84195
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.14999819
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -190.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785389166012932045, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8983587302607995171, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      propertyPath: m_Name
-      value: Traffic_light (14)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8983587302607995171, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7366244716075501790}
-  m_SourcePrefab: {fileID: 100100000, guid: 2362f2df58f635b4aa2146302ab49b66, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -153460,10 +154067,8 @@ SceneRoots:
   - {fileID: 950492868}
   - {fileID: 1488866002}
   - {fileID: 1039397397}
-  - {fileID: 955514307}
   - {fileID: 957429659}
   - {fileID: 1583365751}
-  - {fileID: 1047353004}
   - {fileID: 418909838}
   - {fileID: 764780228}
   - {fileID: 47228263}
@@ -153473,20 +154078,14 @@ SceneRoots:
   - {fileID: 1045533930}
   - {fileID: 427165992}
   - {fileID: 29482854}
-  - {fileID: 1403957626}
-  - {fileID: 7684347694923203114}
   - {fileID: 547815695}
   - {fileID: 1425066400}
   - {fileID: 322663771}
-  - {fileID: 1714137097}
-  - {fileID: 523067856}
   - {fileID: 228147886}
   - {fileID: 1342483491}
   - {fileID: 1720974729}
   - {fileID: 348183769}
-  - {fileID: 1377954857}
   - {fileID: 943836180}
-  - {fileID: 1278722778}
   - {fileID: 881739065}
   - {fileID: 2044886280}
   - {fileID: 870907229}
@@ -153495,7 +154094,6 @@ SceneRoots:
   - {fileID: 2012722926}
   - {fileID: 861623236}
   - {fileID: 1268400841}
-  - {fileID: 485821695}
   - {fileID: 1924586442}
   - {fileID: 1651722575}
   - {fileID: 1733692877}
