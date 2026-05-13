@@ -7,10 +7,11 @@ namespace MyTrafficSystem.EditorTools
 {
     public class TrafficSystemWindow : EditorWindow
     {
-        private enum Mode { None, CreateLane }
+        private enum Mode { None, CreateLane, ExtendLane }
 
         private static Mode mode;
         private static Lane activeLane;
+        private static int extendInsertIndex = -1;
         private Lane lane1;
         private Lane lane2;
 
@@ -39,6 +40,11 @@ namespace MyTrafficSystem.EditorTools
                 StartCreateLane();
             }
 
+            if (GUILayout.Button("Extend Lane", GUILayout.Height(32f)))
+            {
+                StartExtendLane();
+            }
+
             if (GUILayout.Button("Connect Lanes", GUILayout.Height(32f)))
             {
                 ConnectLane1ToLane2();
@@ -57,6 +63,7 @@ namespace MyTrafficSystem.EditorTools
             {
                 mode = Mode.None;
                 activeLane = null;
+                extendInsertIndex = -1;
             }
         }
 
@@ -79,7 +86,37 @@ namespace MyTrafficSystem.EditorTools
 
             mode = Mode.CreateLane;
             activeLane = lane;
+            extendInsertIndex = -1;
             Selection.activeGameObject = go;
+        }
+
+        private static void StartExtendLane()
+        {
+            if (Selection.activeGameObject == null)
+            {
+                return;
+            }
+
+            Lane lane = Selection.activeGameObject.GetComponent<Lane>();
+            if (lane == null)
+            {
+                Waypoint selectedWp = Selection.activeGameObject.GetComponent<Waypoint>();
+                if (selectedWp != null)
+                {
+                    lane = selectedWp.Owner;
+                }
+            }
+
+            if (lane == null)
+            {
+                return;
+            }
+
+            lane.RefreshWaypointsFromChildren();
+            activeLane = lane;
+            mode = Mode.ExtendLane;
+            extendInsertIndex = ResolveInitialInsertIndex(lane);
+            Selection.activeGameObject = lane.gameObject;
         }
 
         private static void OnSceneGui(SceneView sceneView)
@@ -95,6 +132,12 @@ namespace MyTrafficSystem.EditorTools
             if (mode == Mode.CreateLane)
             {
                 HandleCreateLane(e);
+                return;
+            }
+
+            if (mode == Mode.ExtendLane)
+            {
+                HandleExtendLane(e);
                 return;
             }
 
@@ -128,6 +171,7 @@ namespace MyTrafficSystem.EditorTools
 
                 mode = Mode.None;
                 activeLane = null;
+                extendInsertIndex = -1;
                 e.Use();
                 return;
             }
@@ -137,6 +181,43 @@ namespace MyTrafficSystem.EditorTools
             {
                 Vector3 position = GetPointFromMouse(e.mousePosition);
                 CreateWaypoint(activeLane, position);
+                e.Use();
+            }
+        }
+
+        private static void HandleExtendLane(Event e)
+        {
+            if (activeLane == null)
+            {
+                mode = Mode.None;
+                extendInsertIndex = -1;
+                return;
+            }
+
+            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Return)
+            {
+                activeLane.RefreshWaypointsFromChildren();
+                EditorUtility.SetDirty(activeLane);
+                mode = Mode.None;
+                activeLane = null;
+                extendInsertIndex = -1;
+                e.Use();
+                return;
+            }
+
+            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Escape)
+            {
+                mode = Mode.None;
+                activeLane = null;
+                extendInsertIndex = -1;
+                e.Use();
+                return;
+            }
+
+            if (e.type == EventType.MouseDown && e.button == 0 && e.shift && !e.control && !e.command)
+            {
+                Vector3 position = GetPointFromMouse(e.mousePosition);
+                InsertOrAppendWaypoint(activeLane, position);
                 e.Use();
             }
         }
@@ -172,6 +253,44 @@ namespace MyTrafficSystem.EditorTools
             Undo.RecordObject(lane, "Add Waypoint");
             lane.AddWaypoint(wp);
             EditorUtility.SetDirty(lane);
+        }
+
+        private static void InsertOrAppendWaypoint(Lane lane, Vector3 position)
+        {
+            if (lane == null)
+            {
+                return;
+            }
+
+            GameObject wpObj = new GameObject();
+            Undo.RegisterCreatedObjectUndo(wpObj, "Extend Lane Waypoint");
+            wpObj.transform.SetParent(lane.transform);
+            wpObj.transform.position = position;
+
+            Waypoint wp = Undo.AddComponent<Waypoint>(wpObj);
+            Undo.RecordObject(lane, "Extend Lane");
+            if (extendInsertIndex >= 0 && extendInsertIndex <= lane.Waypoints.Count)
+            {
+                wpObj.transform.SetSiblingIndex(extendInsertIndex);
+                lane.InsertWaypointAt(extendInsertIndex, wp);
+                extendInsertIndex++;
+            }
+            else
+            {
+                lane.AddWaypoint(wp);
+            }
+            EditorUtility.SetDirty(lane);
+        }
+
+        private static int ResolveInitialInsertIndex(Lane lane)
+        {
+            Waypoint selectedWp = Selection.activeGameObject != null ? Selection.activeGameObject.GetComponent<Waypoint>() : null;
+            if (selectedWp != null && selectedWp.Owner == lane)
+            {
+                return selectedWp.Index + 1;
+            }
+
+            return lane.Waypoints.Count;
         }
 
         private static Vector3 GetPointFromMouse(Vector2 mousePos)

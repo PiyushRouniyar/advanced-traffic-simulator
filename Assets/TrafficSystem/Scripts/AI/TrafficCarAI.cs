@@ -21,6 +21,7 @@ namespace MyTrafficSystem.AI
 
         [Header("Obstacle Detection")]
         [SerializeField] private LayerMask obstacleMask = ~0;
+        [SerializeField] private TrafficRouteDecider routeDecider;
 
         private Rigidbody rb;
         private Lane currentLane;
@@ -40,6 +41,10 @@ namespace MyTrafficSystem.AI
         {
             rb = GetComponent<Rigidbody>();
             rb.interpolation = RigidbodyInterpolation.Interpolate;
+            if (routeDecider == null)
+            {
+                routeDecider = GetComponent<TrafficRouteDecider>();
+            }
         }
 
         private void Start()
@@ -158,7 +163,7 @@ namespace MyTrafficSystem.AI
                 return;
             }
 
-            Lane nextLane = currentLane.GetRandomConnectedLane();
+            Lane nextLane = routeDecider != null ? routeDecider.DecideNextLane(currentLane) : currentLane.GetRandomConnectedLane();
             if (nextLane != null && nextLane.Waypoints.Count > 0)
             {
                 nextLane.RefreshWaypointsFromChildren();

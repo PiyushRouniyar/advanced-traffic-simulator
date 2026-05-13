@@ -22,6 +22,7 @@ namespace MyTrafficSystem.Lanes
 
         [SerializeField] private List<Waypoint> waypoints = new List<Waypoint>();
         [SerializeField] private List<Lane> connectedLanes = new List<Lane>();
+        [SerializeField] private List<LaneConnection> outgoingConnections = new List<LaneConnection>();
 
         public string LaneName { get => laneName; set => laneName = value; }
         public float Speed => Mathf.Max(1f, speed);
@@ -32,6 +33,7 @@ namespace MyTrafficSystem.Lanes
         public bool CanCarsPass => canCarsPass;
         public IReadOnlyList<Waypoint> Waypoints => waypoints;
         public IReadOnlyList<Lane> ConnectedLanes => connectedLanes;
+        public IReadOnlyList<LaneConnection> OutgoingConnections => outgoingConnections;
 
         public Waypoint StartWaypoint { get { CleanupDestroyedReferences(); return waypoints.Count > 0 ? waypoints[0] : null; } }
         public Waypoint EndWaypoint { get { CleanupDestroyedReferences(); return waypoints.Count > 0 ? waypoints[waypoints.Count - 1] : null; } }
@@ -42,6 +44,26 @@ namespace MyTrafficSystem.Lanes
             CleanupDestroyedReferences();
             waypoint.SetOwner(this, waypoints.Count);
             waypoints.Add(waypoint);
+        }
+
+        public void InsertWaypointAt(int insertIndex, Waypoint waypoint)
+        {
+            if (waypoint == null)
+            {
+                return;
+            }
+
+            CleanupDestroyedReferences();
+            int index = Mathf.Clamp(insertIndex, 0, waypoints.Count);
+            waypoints.Insert(index, waypoint);
+
+            for (int i = 0; i < waypoints.Count; i++)
+            {
+                if (waypoints[i] != null)
+                {
+                    waypoints[i].SetOwner(this, i);
+                }
+            }
         }
 
         public void RefreshWaypointsFromChildren()
@@ -69,7 +91,79 @@ namespace MyTrafficSystem.Lanes
         {
             CleanupDestroyedReferences();
             if (connectedLanes.Count == 0) { return null; }
+
+            Lane weighted = GetWeightedConnectedLane(preferNonDeadEnd: true);
+            if (weighted != null)
+            {
+                return weighted;
+            }
+
             return connectedLanes[Random.Range(0, connectedLanes.Count)];
+        }
+
+        public Lane GetWeightedConnectedLane(bool preferNonDeadEnd)
+        {
+            CleanupDestroyedReferences();
+            if (connectedLanes.Count == 0)
+            {
+                return null;
+            }
+
+            float totalWeight = 0f;
+            for (int i = 0; i < outgoingConnections.Count; i++)
+            {
+                LaneConnection connection = outgoingConnections[i];
+                if (connection == null || connection.ToLane == null)
+                {
+                    continue;
+                }
+
+                Lane candidate = connection.ToLane;
+                if (preferNonDeadEnd && !IsLaneGoodForContinuation(candidate))
+                {
+                    continue;
+                }
+
+                totalWeight += Mathf.Max(0.01f, connection.TurnPriority);
+            }
+
+            if (totalWeight <= 0.001f)
+            {
+                for (int i = 0; i < connectedLanes.Count; i++)
+                {
+                    Lane candidate = connectedLanes[i];
+                    if (candidate != null && (!preferNonDeadEnd || IsLaneGoodForContinuation(candidate)))
+                    {
+                        return candidate;
+                    }
+                }
+                return null;
+            }
+
+            float pick = Random.Range(0f, totalWeight);
+            float running = 0f;
+            for (int i = 0; i < outgoingConnections.Count; i++)
+            {
+                LaneConnection connection = outgoingConnections[i];
+                if (connection == null || connection.ToLane == null)
+                {
+                    continue;
+                }
+
+                Lane candidate = connection.ToLane;
+                if (preferNonDeadEnd && !IsLaneGoodForContinuation(candidate))
+                {
+                    continue;
+                }
+
+                running += Mathf.Max(0.01f, connection.TurnPriority);
+                if (pick <= running)
+                {
+                    return candidate;
+                }
+            }
+
+            return null;
         }
 
         public bool TryGetNextWaypoint(int currentIndex, out Waypoint nextWaypoint)
@@ -92,12 +186,17 @@ namespace MyTrafficSystem.Lanes
         public void RegisterOutgoingConnection(LaneConnection connection)
         {
             if (connection == null || connection.ToLane == null) { return; }
+            if (!outgoingConnections.Contains(connection))
+            {
+                outgoingConnections.Add(connection);
+            }
             ConnectTo(connection.ToLane);
         }
 
         public void UnregisterOutgoingConnection(LaneConnection connection)
         {
             if (connection == null || connection.ToLane == null) { return; }
+            outgoingConnections.Remove(connection);
             connectedLanes.Remove(connection.ToLane);
         }
 
@@ -141,7 +240,7 @@ namespace MyTrafficSystem.Lanes
 
         private void OnDrawGizmos()
         {
-            if (!TrafficDebugSettings.ShowTrafficDebug) { return; }
+            if (!TrafficDebugSettings.ShowLanePaths) { return; }
             CleanupDestroyedReferences();
             if (!drawLane || waypoints.Count < 2) { return; }
 
@@ -152,7 +251,10 @@ namespace MyTrafficSystem.Lanes
                 Vector3 a = waypoints[i].transform.position;
                 Vector3 b = waypoints[i + 1].transform.position;
                 Gizmos.DrawLine(a, b);
-                DrawArrow(a, b);
+                if (TrafficDebugSettings.ShowDirectionArrows)
+                {
+                    DrawArrow(a, b);
+                }
             }
 
             if (loop && waypoints.Count > 1 && waypoints[0] != null && waypoints[waypoints.Count - 1] != null)
@@ -160,7 +262,10 @@ namespace MyTrafficSystem.Lanes
                 Vector3 a = waypoints[waypoints.Count - 1].transform.position;
                 Vector3 b = waypoints[0].transform.position;
                 Gizmos.DrawLine(a, b);
-                DrawArrow(a, b);
+                if (TrafficDebugSettings.ShowDirectionArrows)
+                {
+                    DrawArrow(a, b);
+                }
             }
 
             DrawConnectionGizmos();
@@ -168,6 +273,10 @@ namespace MyTrafficSystem.Lanes
 
         private void DrawConnectionGizmos()
         {
+            if (!TrafficDebugSettings.ShowDirectionArrows)
+            {
+                return;
+            }
             Gizmos.color = Color.yellow;
             for (int i = 0; i < connectedLanes.Count; i++)
             {
@@ -214,6 +323,7 @@ namespace MyTrafficSystem.Lanes
         {
             if (waypoints == null) { waypoints = new List<Waypoint>(); }
             if (connectedLanes == null) { connectedLanes = new List<Lane>(); }
+            if (outgoingConnections == null) { outgoingConnections = new List<LaneConnection>(); }
 
             for (int i = waypoints.Count - 1; i >= 0; i--)
             {
@@ -233,7 +343,36 @@ namespace MyTrafficSystem.Lanes
                 if (connectedLanes[i] == null || connectedLanes[i] == this) { connectedLanes.RemoveAt(i); }
             }
 
+            for (int i = outgoingConnections.Count - 1; i >= 0; i--)
+            {
+                LaneConnection connection = outgoingConnections[i];
+                if (connection == null || connection.FromLane != this || connection.ToLane == null)
+                {
+                    outgoingConnections.RemoveAt(i);
+                }
+            }
+
             if (stopWaypointIndex >= waypoints.Count) { stopWaypointIndex = waypoints.Count - 1; }
+        }
+
+        private static bool IsLaneGoodForContinuation(Lane lane)
+        {
+            if (lane == null)
+            {
+                return false;
+            }
+
+            if (lane.Waypoints.Count == 0)
+            {
+                return false;
+            }
+
+            if (lane.Loop)
+            {
+                return true;
+            }
+
+            return lane.ConnectedLanes.Count > 0 || lane.Waypoints.Count > 1;
         }
     }
 }

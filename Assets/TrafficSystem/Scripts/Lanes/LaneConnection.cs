@@ -42,7 +42,7 @@ namespace MyTrafficSystem.Lanes
 
         private void OnDrawGizmos()
         {
-            if (!TrafficDebugSettings.ShowTrafficDebug) { return; }
+            if (!TrafficDebugSettings.ShowDirectionArrows) { return; }
             if (fromLane == null || toLane == null || fromLane.EndWaypoint == null || toLane.StartWaypoint == null) { return; }
             Vector3 a = fromLane.EndWaypoint.transform.position;
             Vector3 b = toLane.StartWaypoint.transform.position;

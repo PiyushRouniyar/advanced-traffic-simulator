@@ -116,6 +116,11 @@ namespace MyTrafficSystem.Managers
                 ai = car.AddComponent<TrafficCarAI>();
             }
 
+            if (car.GetComponent<TrafficRouteDecider>() == null)
+            {
+                car.AddComponent<TrafficRouteDecider>();
+            }
+
             Rigidbody rb = car.GetComponent<Rigidbody>();
             if (rb == null)
             {
