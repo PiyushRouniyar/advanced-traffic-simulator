@@ -9,9 +9,9 @@ namespace MyTrafficSystem.TrafficLights
     public class TrafficLightWorldLabel : MonoBehaviour
     {
         [SerializeField] private Vector3 worldOffset = new Vector3(0f, 3.2f, 0f);
-        [SerializeField] private float minScale = 0.9f;
-        [SerializeField] private float maxScale = 1.25f;
-        [SerializeField] private float scaleDistance = 45f;
+        [SerializeField] private float minScale = 1.15f;
+        [SerializeField] private float maxScale = 1.7f;
+        [SerializeField] private float scaleDistance = 70f;
 
         private TrafficLightController controller;
         private TrafficLightGroup group;
@@ -68,7 +68,8 @@ namespace MyTrafficSystem.TrafficLights
             float dist = Vector3.Distance(root.position, cam.transform.position);
             float t = Mathf.Clamp01(dist / Mathf.Max(1f, scaleDistance));
             float scale = Mathf.Lerp(maxScale, minScale, t);
-            root.localScale = Vector3.one * (0.01f * scale);
+            root.localScale = Vector3.one * (0.011f * scale);
+            canvasGroup.alpha = 1f;
         }
 
         private void RefreshText()
@@ -81,16 +82,15 @@ namespace MyTrafficSystem.TrafficLights
 
             if (!TrafficLightDebugSettings.ShowExtraInfo)
             {
-                infoText.text = $"Key: {controller.KeyboardToggleKey}";
+                infoText.text = $"KEY: {controller.KeyboardToggleKey}";
                 return;
             }
 
             string groupName = group != null ? group.GroupName : "No Group";
             string autoMode = controller.AutoCycleEnabled ? "ON" : "OFF";
             infoText.text =
-                $"Key: {controller.KeyboardToggleKey}\\n" +
-                $"Auto: {autoMode}  Timer: {controller.RemainingTimer:0.0}s\\n" +
-                $"Name: {gameObject.name}  Group: {groupName}";
+                $"KEY: {controller.KeyboardToggleKey}\\n" +
+                $"Auto: {autoMode}  Timer: {controller.RemainingTimer:0.0}s  Group: {groupName}";
         }
 
         private void CreateLabelObjects()
@@ -103,11 +103,11 @@ namespace MyTrafficSystem.TrafficLights
             canvas.sortingOrder = 1200;
 
             CanvasScaler scaler = canvasObj.GetComponent<CanvasScaler>();
-            scaler.dynamicPixelsPerUnit = 18f;
+            scaler.dynamicPixelsPerUnit = 64f;
 
             canvasGroup = canvasObj.GetComponent<CanvasGroup>();
             root = canvasObj.GetComponent<RectTransform>();
-            root.sizeDelta = new Vector2(360f, 130f);
+            root.sizeDelta = new Vector2(420f, 130f);
 
             GameObject bgObj = new GameObject("Background", typeof(Image));
             bgObj.transform.SetParent(root, false);
@@ -117,10 +117,11 @@ namespace MyTrafficSystem.TrafficLights
             bgRect.offsetMin = Vector2.zero;
             bgRect.offsetMax = Vector2.zero;
             Image bg = bgObj.GetComponent<Image>();
-            bg.color = new Color(0.05f, 0.08f, 0.12f, 0.72f);
+            bg.color = new Color(0.02f, 0.04f, 0.07f, 0.94f);
 
-            stateText = CreateText("State", root, 30f, FontStyles.Bold, TextAlignmentOptions.Center, new Vector2(0f, -8f), new Vector2(0f, 46f));
-            infoText = CreateText("Info", root, 18f, FontStyles.Normal, TextAlignmentOptions.Center, new Vector2(0f, -50f), new Vector2(0f, 84f));
+            stateText = CreateText("State", root, 28f, FontStyles.Bold, TextAlignmentOptions.Center, new Vector2(0f, -6f), new Vector2(0f, 42f));
+            infoText = CreateText("Info", root, 22f, FontStyles.Bold, TextAlignmentOptions.Center, new Vector2(0f, -46f), new Vector2(0f, 72f));
+            infoText.color = new Color(0.9f, 0.95f, 1f, 0.92f);
         }
 
         private static TextMeshProUGUI CreateText(string name, Transform parent, float size, FontStyles style, TextAlignmentOptions align, Vector2 topOffset, Vector2 height)
@@ -133,6 +134,9 @@ namespace MyTrafficSystem.TrafficLights
             tmp.alignment = align;
             tmp.color = new Color(0.93f, 0.96f, 1f, 1f);
             tmp.enableWordWrapping = false;
+            tmp.enableAutoSizing = false;
+            tmp.outlineWidth = 0.28f;
+            tmp.outlineColor = new Color(0f, 0f, 0f, 0.95f);
 
             RectTransform rt = tmp.rectTransform;
             rt.anchorMin = new Vector2(0f, 1f);

@@ -22,11 +22,13 @@ namespace MyTrafficSystem.Gameplay.CCTV
         [SerializeField] private bool autoDiscoverCameraPointsIfNone = true;
         [SerializeField] private bool sortByPriority = true;
         [SerializeField] private bool enforceFixedMountEveryFrame = true;
+        [SerializeField] private bool allowKeyboardSwitching = true;
 
         private readonly List<Transform> cameraAnchors = new List<Transform>();
         private int activeCameraIndex = -1;
         private Transform blendTarget;
         private float currentBlendTime;
+        private bool cameraSelectionLocked;
 
         public int ActiveCameraIndex => activeCameraIndex;
         public int CameraCount => cameraAnchors.Count;
@@ -44,6 +46,7 @@ namespace MyTrafficSystem.Gameplay.CCTV
         }
         public string ActiveIntersectionName => ActivePoint != null ? ActivePoint.IntersectionLabel : "No Intersection";
         public string ActiveTrafficGroupName => ActivePoint != null ? ActivePoint.TrafficGroupLabel : "No Group";
+        public bool CameraSelectionLocked => cameraSelectionLocked;
 
         public string GetCameraLabel(int index)
         {
@@ -67,14 +70,17 @@ namespace MyTrafficSystem.Gameplay.CCTV
         {
             if (cameraAnchors.Count == 0 || gameplayCamera == null) return;
 
-            if (Input.GetKeyDown(nextCameraKey))
+            if (allowKeyboardSwitching && !cameraSelectionLocked)
             {
-                NextCamera();
-            }
+                if (Input.GetKeyDown(nextCameraKey))
+                {
+                    NextCamera();
+                }
 
-            if (Input.GetKeyDown(zoomKey))
-            {
-                ToggleZoom();
+                if (Input.GetKeyDown(zoomKey))
+                {
+                    ToggleZoom();
+                }
             }
 
             if (blendTarget != null)
@@ -142,6 +148,7 @@ namespace MyTrafficSystem.Gameplay.CCTV
 
         public void SetActiveCamera(int index, bool instant = false)
         {
+            if (cameraSelectionLocked && index != activeCameraIndex) return;
             if (cameraAnchors.Count == 0 || index < 0 || index >= cameraAnchors.Count) return;
 
             activeCameraIndex = index;
@@ -165,6 +172,7 @@ namespace MyTrafficSystem.Gameplay.CCTV
 
         public void NextCamera()
         {
+            if (cameraSelectionLocked) return;
             if (cameraAnchors.Count == 0) return;
             int next = (activeCameraIndex + 1 + cameraAnchors.Count) % cameraAnchors.Count;
             SetActiveCamera(next);
@@ -172,9 +180,15 @@ namespace MyTrafficSystem.Gameplay.CCTV
 
         public void PreviousCamera()
         {
+            if (cameraSelectionLocked) return;
             if (cameraAnchors.Count == 0) return;
             int prev = (activeCameraIndex - 1 + cameraAnchors.Count) % cameraAnchors.Count;
             SetActiveCamera(prev);
+        }
+
+        public void SetCameraSelectionLocked(bool locked)
+        {
+            cameraSelectionLocked = locked;
         }
 
         private void ToggleZoom()

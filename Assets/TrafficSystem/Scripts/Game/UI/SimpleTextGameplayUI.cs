@@ -45,11 +45,30 @@ namespace MyTrafficSystem.Gameplay.UI
 
         private void Start()
         {
+            if (DisableLegacyUIWhenChallengeUIActive()) return;
+
             ResolveSystems();
             BuildUI();
             BuildCameraButtons();
             HookTrafficButtons();
             RefreshTrafficButtonVisuals();
+        }
+
+        private bool DisableLegacyUIWhenChallengeUIActive()
+        {
+            if (FindFirstObjectByType<MyTrafficSystem.Gameplay.Challenge.CameraChallengeManager>(FindObjectsInactive.Include) == null)
+            {
+                return false;
+            }
+
+            GameObject legacyCanvas = GameObject.Find("SimpleGameplayCanvas");
+            if (legacyCanvas != null)
+            {
+                Destroy(legacyCanvas);
+            }
+
+            Destroy(gameObject);
+            return true;
         }
 
         private void Update()

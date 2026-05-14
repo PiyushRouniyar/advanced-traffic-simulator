@@ -81,6 +81,11 @@ namespace MyTrafficSystem.EditorTools
             {
                 AddSelectedLanesToSpawner();
             }
+
+            if (GUILayout.Button("Use All Lanes", GUILayout.Height(24f)))
+            {
+                AddAllLanesToSpawner();
+            }
         }
 
         private void ResolveSpawner()
@@ -122,6 +127,28 @@ namespace MyTrafficSystem.EditorTools
                 if (lane != null && !spawner.SpawnLanes.Contains(lane))
                 {
                     Undo.RecordObject(spawner, "Add Spawn Lane");
+                    spawner.SpawnLanes.Add(lane);
+                }
+            }
+
+            EditorUtility.SetDirty(spawner);
+        }
+
+        private void AddAllLanesToSpawner()
+        {
+            if (spawner == null)
+            {
+                return;
+            }
+
+            Lane[] allLanes = FindObjectsByType<Lane>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            Undo.RecordObject(spawner, "Use All Spawn Lanes");
+            spawner.SpawnLanes.Clear();
+            for (int i = 0; i < allLanes.Length; i++)
+            {
+                Lane lane = allLanes[i];
+                if (lane != null)
+                {
                     spawner.SpawnLanes.Add(lane);
                 }
             }

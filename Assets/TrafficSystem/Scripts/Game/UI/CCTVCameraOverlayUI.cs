@@ -1,4 +1,5 @@
 using MyTrafficSystem.Gameplay.CCTV;
+using MyTrafficSystem.Gameplay;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,9 @@ namespace MyTrafficSystem.Gameplay.UI
         [SerializeField] private Image noiseOverlay;
         [SerializeField] private Image monitorBorder;
         [SerializeField] private CanvasGroup rootGroup;
+        [SerializeField] private Button setAllGreenButton;
+        [SerializeField] private Button setAllRedButton;
+        [SerializeField] private MasterTrafficLightController masterTrafficLightController;
 
         [Header("Style")]
         [SerializeField] private Color goodColor = new Color(0.35f, 1f, 0.75f, 1f);
@@ -38,12 +42,18 @@ namespace MyTrafficSystem.Gameplay.UI
             {
                 cctvSystem = FindFirstObjectByType<CCTVCameraSystem>(FindObjectsInactive.Include);
             }
+            if (masterTrafficLightController == null)
+            {
+                masterTrafficLightController = FindFirstObjectByType<MasterTrafficLightController>(FindObjectsInactive.Include);
+            }
 
             if (cctvSystem != null)
             {
                 cctvSystem.CameraChanged += OnCameraChanged;
                 RefreshFromSystem();
             }
+
+            WireLightButtons();
         }
 
         private void OnDestroy()
@@ -133,6 +143,41 @@ namespace MyTrafficSystem.Gameplay.UI
             {
                 intersectionNameText.text = cctvSystem.ActiveIntersectionName;
             }
+        }
+
+        private void WireLightButtons()
+        {
+            if (setAllGreenButton != null)
+            {
+                setAllGreenButton.onClick.RemoveListener(SetAllGreenFromUI);
+                setAllGreenButton.onClick.AddListener(SetAllGreenFromUI);
+            }
+
+            if (setAllRedButton != null)
+            {
+                setAllRedButton.onClick.RemoveListener(SetAllRedFromUI);
+                setAllRedButton.onClick.AddListener(SetAllRedFromUI);
+            }
+        }
+
+        public void SetAllGreenFromUI()
+        {
+            if (masterTrafficLightController == null)
+            {
+                masterTrafficLightController = FindFirstObjectByType<MasterTrafficLightController>(FindObjectsInactive.Include);
+            }
+
+            masterTrafficLightController?.SetAllGreen();
+        }
+
+        public void SetAllRedFromUI()
+        {
+            if (masterTrafficLightController == null)
+            {
+                masterTrafficLightController = FindFirstObjectByType<MasterTrafficLightController>(FindObjectsInactive.Include);
+            }
+
+            masterTrafficLightController?.SetAllRed();
         }
     }
 }

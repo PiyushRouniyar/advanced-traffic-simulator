@@ -47,6 +47,7 @@ namespace MyTrafficSystem.EditorTools
             so.ApplyModifiedProperties();
 
             if (GUILayout.Button("Use Selected Lanes", GUILayout.Height(24f))) AddSelectedLanes();
+            if (GUILayout.Button("Use All Lanes", GUILayout.Height(24f))) AddAllLanes();
 
             EditorGUILayout.Space(8f);
             if (GUILayout.Button("START CITIZENS", GUILayout.Height(32f)) && Application.isPlaying) spawner.StartSpawning();
@@ -78,6 +79,25 @@ namespace MyTrafficSystem.EditorTools
                 Undo.RecordObject(spawner, "Add Citizen Spawn Lane");
                 spawner.AddSpawnLane(lane);
             }
+            EditorUtility.SetDirty(spawner);
+        }
+
+        private void AddAllLanes()
+        {
+            if (spawner == null) return;
+
+            CitizenLane[] allLanes = FindObjectsByType<CitizenLane>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            Undo.RecordObject(spawner, "Use All Citizen Spawn Lanes");
+            spawner.SpawnLanes.Clear();
+            for (int i = 0; i < allLanes.Length; i++)
+            {
+                CitizenLane lane = allLanes[i];
+                if (lane != null)
+                {
+                    spawner.SpawnLanes.Add(lane);
+                }
+            }
+
             EditorUtility.SetDirty(spawner);
         }
     }

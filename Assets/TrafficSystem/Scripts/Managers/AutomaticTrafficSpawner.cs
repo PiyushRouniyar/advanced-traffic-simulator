@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MyTrafficSystem.AI;
+using MyTrafficSystem.Gameplay.Challenge;
 using MyTrafficSystem.Lanes;
 using UnityEngine;
 
@@ -130,6 +131,11 @@ namespace MyTrafficSystem.Managers
             }
 
             ai.SetStartLane(lane);
+
+            if (car.GetComponent<VehicleIncidentReporter>() == null)
+            {
+                car.AddComponent<VehicleIncidentReporter>();
+            }
         }
 
         private Lane GetRandomValidLane()
