@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7f33f954ad12f438b6393611e738fb, type: 3}
+  m_Name: Level3
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Gameplay.Level.TrafficLevelDefinition
+  levelId: LEVEL_3
+  displayName: Level 3 - Congestion Rush
+  introText: Heavy congestion and high pressure control.
+  levelDurationSeconds: 300
+  introDurationSeconds: 5
+  maxCongestionNormalized: 0.82
+  failCongestionDurationSeconds: 8
+  maxCriticalStalledVehicles: 55
+  requirePedestrianSafety: 1
+  startTrafficSpawnMultiplier: 1.2
+  endTrafficSpawnMultiplier: 2.2
+  startPedestrianSpawnMultiplier: 1.1
+  endPedestrianSpawnMultiplier: 1.9
+  carSpawners:
+  - {fileID: 0}
+  citizenSpawners:
+  - {fileID: 0}
+  controlledIntersections: []
+  cctvCameraAnchors:
+  - {fileID: 0}

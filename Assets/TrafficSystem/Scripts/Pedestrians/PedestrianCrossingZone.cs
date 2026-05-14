@@ -3,125 +3,60 @@ using UnityEngine;
 
 namespace MyTrafficSystem.Pedestrians
 {
+    // Compatibility bridge for existing car AI dependency.
     [DisallowMultipleComponent]
     public class PedestrianCrossingZone : MonoBehaviour
     {
-        [SerializeField] private PedestrianCrossingController controller;
-        [SerializeField] private Collider zoneCollider;
-        [SerializeField] private bool drawDebug = true;
-        [SerializeField] private Color idleColor = new Color(1f, 1f, 0f, 0.2f);
-        [SerializeField] private Color activeColor = new Color(1f, 0.4f, 0.2f, 0.3f);
+        private static readonly Dictionary<CitizenCrossingNode, HashSet<int>> CrossingCitizens = new Dictionary<CitizenCrossingNode, HashSet<int>>();
 
-        private readonly HashSet<PedestrianAI> crossingPedestrians = new HashSet<PedestrianAI>();
-        private static readonly List<PedestrianCrossingZone> AllZones = new List<PedestrianCrossingZone>();
-
-        public bool CanPedestriansCross => controller == null || controller.CanPedestriansCross;
-        public bool HasActiveCrossingPedestrians => crossingPedestrians.Count > 0;
-
-        private void OnEnable()
+        public static void ReportCitizenCrossing(CitizenCrossingNode node, Vector3 nearPosition, bool entering)
         {
-            if (!AllZones.Contains(this))
-            {
-                AllZones.Add(this);
-            }
-            ResolveCollider();
+            // Backward-compatible bridge: route anonymous calls to a shared synthetic id.
+            ReportCitizenCrossing(node, 0, entering);
         }
 
-        private void OnDisable()
+        public static void ReportCitizenCrossing(CitizenCrossingNode node, int citizenId, bool entering)
         {
-            AllZones.Remove(this);
-            crossingPedestrians.Clear();
-        }
+            if (node == null) return;
 
-        public void EnterCrossing(PedestrianAI pedestrian)
-        {
-            if (pedestrian != null)
+            if (!CrossingCitizens.TryGetValue(node, out HashSet<int> set))
             {
-                crossingPedestrians.Add(pedestrian);
-            }
-        }
-
-        public void ExitCrossing(PedestrianAI pedestrian)
-        {
-            if (pedestrian != null)
-            {
-                crossingPedestrians.Remove(pedestrian);
-            }
-        }
-
-        public static bool IsCrosswalkBlockingCars(Vector3 origin, Vector3 forward, float checkDistance)
-        {
-            Vector3 forwardFlat = forward;
-            forwardFlat.y = 0f;
-            if (forwardFlat.sqrMagnitude < 0.0001f)
-            {
-                return false;
+                set = new HashSet<int>();
+                CrossingCitizens[node] = set;
             }
 
-            forwardFlat.Normalize();
-            float maxDistance = Mathf.Max(1f, checkDistance);
-
-            for (int i = 0; i < AllZones.Count; i++)
+            if (entering)
             {
-                PedestrianCrossingZone zone = AllZones[i];
-                if (zone == null || !zone.HasActiveCrossingPedestrians)
-                {
-                    continue;
-                }
-
-                Vector3 toZone = zone.transform.position - origin;
-                toZone.y = 0f;
-                float dot = Vector3.Dot(forwardFlat, toZone.normalized);
-                if (dot < 0.4f)
-                {
-                    continue;
-                }
-
-                float sqrDist = toZone.sqrMagnitude;
-                if (sqrDist <= maxDistance * maxDistance)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        private void ResolveCollider()
-        {
-            if (zoneCollider == null)
-            {
-                zoneCollider = GetComponent<Collider>();
-            }
-
-            if (controller == null)
-            {
-                controller = GetComponent<PedestrianCrossingController>();
-                if (controller == null)
-                {
-                    controller = GetComponent<CrosswalkController>();
-                }
-            }
-        }
-
-        private void OnDrawGizmos()
-        {
-            if (!drawDebug)
-            {
-                return;
-            }
-
-            ResolveCollider();
-            Gizmos.color = HasActiveCrossingPedestrians ? activeColor : idleColor;
-            if (zoneCollider is BoxCollider box)
-            {
-                Gizmos.matrix = box.transform.localToWorldMatrix;
-                Gizmos.DrawCube(box.center, box.size);
+                set.Add(citizenId);
             }
             else
             {
-                Gizmos.DrawSphere(transform.position, 1.2f);
+                set.Remove(citizenId);
             }
+        }
+
+        public static bool IsCrosswalkBlockingCars(Vector3 carPosition, Vector3 carForward, float lookAheadDistance)
+        {
+            float maxDistance = Mathf.Max(0.5f, lookAheadDistance);
+
+            foreach (KeyValuePair<CitizenCrossingNode, HashSet<int>> kv in CrossingCitizens)
+            {
+                CitizenCrossingNode node = kv.Key;
+                if (node == null || kv.Value == null || kv.Value.Count <= 0) continue;
+
+                Vector3 toNode = node.transform.position - carPosition;
+                toNode.y = 0f;
+                if (toNode.sqrMagnitude > maxDistance * maxDistance) continue;
+
+                Vector3 forwardFlat = carForward;
+                forwardFlat.y = 0f;
+                if (forwardFlat.sqrMagnitude < 0.001f) continue;
+
+                if (Vector3.Dot(forwardFlat.normalized, toNode.normalized) < 0.2f) continue;
+                return true;
+            }
+
+            return false;
         }
     }
 }
