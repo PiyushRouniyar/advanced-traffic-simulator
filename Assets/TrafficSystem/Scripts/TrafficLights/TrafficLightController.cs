@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace MyTrafficSystem.TrafficLights
@@ -22,13 +23,26 @@ namespace MyTrafficSystem.TrafficLights
         [SerializeField] private Renderer yellowRenderer;
         [SerializeField] private Renderer greenRenderer;
         [SerializeField] private float emissionIntensity = 2.2f;
+        [SerializeField] private bool autoDetectLampRenderers = true;
 
         public TrafficLightState CurrentState { get; private set; }
         public bool ShouldStopCars => CurrentState == TrafficLightState.Red || (stopOnYellow && CurrentState == TrafficLightState.Yellow);
         public bool ShouldStopCarsNow() => ShouldStopCars;
         public KeyCode KeyboardToggleKey => keyboardToggleKey;
+        public bool IsPlayerControlled => playerControlled;
+        public bool AutoCycleEnabled => autoCycleWhenNotPlayerControlled;
+        public float RemainingTimer => Mathf.Max(0f, timer);
+        public event Action<TrafficLightState> StateChanged;
 
         private float timer;
+
+        private void Awake()
+        {
+            if (autoDetectLampRenderers)
+            {
+                TryAutoAssignRenderers();
+            }
+        }
 
         private void Start()
         {
@@ -87,7 +101,6 @@ namespace MyTrafficSystem.TrafficLights
 
         private void CycleState()
         {
-            // Keep player control simple and gameplay-focused: toggle between stop/go.
             if (playerControlled)
             {
                 SetState(CurrentState == TrafficLightState.Red ? TrafficLightState.Green : TrafficLightState.Red);
@@ -111,20 +124,12 @@ namespace MyTrafficSystem.TrafficLights
         private void SetState(TrafficLightState state)
         {
             CurrentState = state;
-            if (state == TrafficLightState.Red)
-            {
-                timer = Mathf.Max(0.2f, redTime);
-            }
-            else if (state == TrafficLightState.Yellow)
-            {
-                timer = Mathf.Max(0.2f, yellowTime);
-            }
-            else
-            {
-                timer = Mathf.Max(0.2f, greenTime);
-            }
+            if (state == TrafficLightState.Red) timer = Mathf.Max(0.2f, redTime);
+            else if (state == TrafficLightState.Yellow) timer = Mathf.Max(0.2f, yellowTime);
+            else timer = Mathf.Max(0.2f, greenTime);
 
             ApplyVisuals();
+            StateChanged?.Invoke(state);
         }
 
         private void ApplyVisuals()
@@ -145,6 +150,28 @@ namespace MyTrafficSystem.TrafficLights
             rendererTarget.GetPropertyBlock(block);
             block.SetColor("_EmissionColor", color * emissionIntensity);
             rendererTarget.SetPropertyBlock(block);
+        }
+
+        private void TryAutoAssignRenderers()
+        {
+            if (redRenderer != null && yellowRenderer != null && greenRenderer != null)
+            {
+                return;
+            }
+
+            Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                if (renderers[i] == null)
+                {
+                    continue;
+                }
+
+                string n = renderers[i].name.ToLowerInvariant();
+                if (redRenderer == null && n.Contains("red")) redRenderer = renderers[i];
+                else if (yellowRenderer == null && (n.Contains("yellow") || n.Contains("amber"))) yellowRenderer = renderers[i];
+                else if (greenRenderer == null && n.Contains("green")) greenRenderer = renderers[i];
+            }
         }
 
         private void OnDrawGizmos()

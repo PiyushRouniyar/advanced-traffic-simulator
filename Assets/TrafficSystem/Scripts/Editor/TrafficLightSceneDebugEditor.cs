@@ -16,7 +16,7 @@ namespace MyTrafficSystem.EditorTools
         private static void OnSceneGui(SceneView sceneView)
         {
             Event e = Event.current;
-            if (e.type == EventType.KeyDown && e.keyCode == KeyCode.F3)
+            if (e.type == EventType.KeyDown && e.keyCode == TrafficLightDebugSettings.ToggleKey)
             {
                 TrafficLightDebugSettings.ShowTrafficLightDebugInfo = !TrafficLightDebugSettings.ShowTrafficLightDebugInfo;
                 SceneView.RepaintAll();
@@ -24,39 +24,52 @@ namespace MyTrafficSystem.EditorTools
                 return;
             }
 
-            if (!TrafficLightDebugSettings.ShowTrafficLightDebugInfo)
+            if (!TrafficLightDebugSettings.ShowTrafficLightDebugInfo || !TrafficLightDebugSettings.ShowSceneViewLabels)
             {
                 return;
             }
 
-            TrafficLightGroup[] groups = Object.FindObjectsByType<TrafficLightGroup>(FindObjectsSortMode.None);
-            for (int i = 0; i < groups.Length; i++)
+            MyTrafficSystem.TrafficLights.TrafficLightController[] lights = Object.FindObjectsByType<MyTrafficSystem.TrafficLights.TrafficLightController>(FindObjectsSortMode.None);
+            for (int i = 0; i < lights.Length; i++)
             {
-                TrafficLightGroup group = groups[i];
-                if (group == null)
+                MyTrafficSystem.TrafficLights.TrafficLightController light = lights[i];
+                if (light == null)
                 {
                     continue;
                 }
 
-                DrawGroupLabel(group);
+                DrawLightLabel(light);
             }
         }
 
-        private static void DrawGroupLabel(TrafficLightGroup group)
+        private static void DrawLightLabel(MyTrafficSystem.TrafficLights.TrafficLightController light)
         {
-            Vector3 pos = group.transform.position + Vector3.up * 3f;
-            bool selected = Selection.activeGameObject == group.gameObject;
+            Vector3 pos = light.transform.position + Vector3.up * TrafficLightDebugSettings.LabelHeight;
+            bool selected = Selection.activeGameObject == light.gameObject;
 
             GUIStyle keyStyle = new GUIStyle(EditorStyles.boldLabel);
             keyStyle.normal.textColor = selected ? Color.white : new Color(0.85f, 0.9f, 1f, 0.9f);
 
             GUIStyle stateStyle = new GUIStyle(EditorStyles.boldLabel);
-            stateStyle.normal.textColor = group.DebugState == TrafficLightState.Green ? Color.green :
-                                          group.DebugState == TrafficLightState.Red ? Color.red :
+            stateStyle.normal.textColor = light.CurrentState == TrafficLightState.Green ? Color.green :
+                                          light.CurrentState == TrafficLightState.Red ? Color.red :
                                           new Color(1f, 0.85f, 0.15f, 1f);
 
-            Handles.Label(pos, $"Key: {group.ActivationKey}", keyStyle);
-            Handles.Label(pos + Vector3.down * 0.25f, $"State: {group.DebugState}", stateStyle);
+            string groupName = "No Group";
+            TrafficLightGroup group = light.GetComponentInParent<TrafficLightGroup>();
+            if (group != null)
+            {
+                groupName = group.GroupName;
+            }
+
+            Handles.Label(pos, $"[{light.CurrentState.ToString().ToUpperInvariant()}]", stateStyle);
+            Handles.Label(pos + Vector3.down * 0.23f, $"Key: {light.KeyboardToggleKey}", keyStyle);
+
+            if (TrafficLightDebugSettings.ShowExtraInfo)
+            {
+                Handles.Label(pos + Vector3.down * 0.46f, $"Auto: {(light.AutoCycleEnabled ? "ON" : "OFF")}  Timer: {light.RemainingTimer:0.0}s", keyStyle);
+                Handles.Label(pos + Vector3.down * 0.69f, $"{light.gameObject.name} | {groupName}", keyStyle);
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MyTrafficSystem.Pedestrians
 {
-    // Citizen alias for existing pedestrian lane behavior.
+    // Compatibility alias to keep older scene references intact.
     [DisallowMultipleComponent]
     public class CitizenPath : PedestrianLane
     {

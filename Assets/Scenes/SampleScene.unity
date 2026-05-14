@@ -1214,7 +1214,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 225143961}
+      addedObject: {fileID: 225143965}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &13775455
 GameObject:
@@ -2203,6 +2203,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &29716993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4089,6 +4090,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &48102431
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,52 +5988,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78270480}
   m_Mesh: {fileID: -4931521758496453707, guid: ec267df9d58af224e96deddfec326811, type: 3}
---- !u!1 &79194355
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 79194356}
-  - component: {fileID: 79194357}
-  m_Layer: 0
-  m_Name: WP_05
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &79194356
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79194355}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 387.9176, y: 5.766987, z: 6.1378236}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &79194357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79194355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 5
 --- !u!1 &79516437
 GameObject:
   m_ObjectHideFlags: 0
@@ -6874,6 +6830,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87525139}
   m_Mesh: {fileID: 4300000, guid: fd764d7ff467f8a47bf0105bd3bdb236, type: 3}
+--- !u!1 &87729894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87729896}
+  - component: {fileID: 87729895}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &87729895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87729894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 201956991}
+  index: 1
+--- !u!4 &87729896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87729894}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -664.6908, y: -20.126608, z: 0.10671091}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201956992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &89866594
 GameObject:
   m_ObjectHideFlags: 0
@@ -8881,6 +8883,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 214415468}
   index: 7
+--- !u!1 &116328091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116328093}
+  - component: {fileID: 116328092}
+  m_Layer: 0
+  m_Name: WP_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &116328092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116328091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1948434708}
+  index: 2
+--- !u!4 &116328093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116328091}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -316.29846, y: -20.126608, z: -0.720114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948434709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &117551368
 GameObject:
   m_ObjectHideFlags: 0
@@ -9278,7 +9326,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 281517419}
+      addedObject: {fileID: 281517424}
+    - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 281517425}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &122308920
 GameObject:
@@ -11621,6 +11672,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &154080103
 GameObject:
   m_ObjectHideFlags: 0
@@ -13811,6 +13863,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184779720}
   m_Mesh: {fileID: 7386308551575268045, guid: 42577a18da1736145bc1bef9c2e04715, type: 3}
+--- !u!1 &187164424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 187164426}
+  - component: {fileID: 187164425}
+  m_Layer: 0
+  m_Name: Lane_40
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &187164425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187164424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_40
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 281517425}
+  stopWaypointIndex: 1
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 392647083}
+  - {fileID: 1038361836}
+  - {fileID: 222299013}
+  connectedLanes:
+  - {fileID: 2070922025}
+  outgoingConnections: []
+--- !u!4 &187164426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187164424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -325.21487, y: 11.893043, z: -2.455593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 392647082}
+  - {fileID: 1038361835}
+  - {fileID: 222299014}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &189683391
 GameObject:
   m_ObjectHideFlags: 0
@@ -14788,6 +14902,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 1240655159}
   index: 2
+--- !u!1 &201956990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 201956992}
+  - component: {fileID: 201956991}
+  m_Layer: 0
+  m_Name: Lane_46
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &201956991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201956990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_46
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 322663777}
+  stopWaypointIndex: 0
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 1904990559}
+  - {fileID: 87729895}
+  connectedLanes:
+  - {fileID: 1735375257}
+  outgoingConnections: []
+--- !u!4 &201956992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201956990}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 335.47458, y: 20.126608, z: 3.850401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1904990560}
+  - {fileID: 87729896}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202865580
 GameObject:
   m_ObjectHideFlags: 0
@@ -15377,6 +15551,52 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.8845957, y: 1, z: 1}
   m_Center: {x: 0.0928581, y: 0, z: 0.0000002870382}
+--- !u!1 &210207332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210207333}
+  - component: {fileID: 210207334}
+  m_Layer: 0
+  m_Name: WP_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210207333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210207332}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 226.06491, y: -11.893043, z: -1.7329302}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070922026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210207334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210207332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 2070922025}
+  index: 2
 --- !u!1 &210918935
 GameObject:
   m_ObjectHideFlags: 0
@@ -15890,6 +16110,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &213743549
 GameObject:
   m_ObjectHideFlags: 0
@@ -16647,6 +16868,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220907174}
   m_Mesh: {fileID: 6385602932717552147, guid: ec267df9d58af224e96deddfec326811, type: 3}
+--- !u!1 &222299012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222299014}
+  - component: {fileID: 222299013}
+  m_Layer: 0
+  m_Name: WP_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &222299013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222299012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 187164425}
+  index: 2
+--- !u!4 &222299014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222299012}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 56.151367, y: -11.893043, z: -0.83104587}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 187164426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &224416577
 GameObject:
   m_ObjectHideFlags: 0
@@ -16855,7 +17122,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
   m_PrefabInstance: {fileID: 13487127}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &225143961
+--- !u!114 &225143965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16869,7 +17136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
   playerControlled: 1
   autoCycleWhenNotPlayerControlled: 0
-  keyboardToggleKey: 54
+  keyboardToggleKey: 55
   redTime: 8
   yellowTime: 2
   greenTime: 8
@@ -16879,6 +17146,53 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
+--- !u!1 &225766324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225766325}
+  - component: {fileID: 225766326}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225766325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225766324}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 225.02328, y: -11.893043, z: -1.7069964}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070922026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &225766326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225766324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 2070922025}
+  index: 1
 --- !u!1001 &226289077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17266,6 +17580,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &229310754
 GameObject:
   m_ObjectHideFlags: 0
@@ -20363,7 +20678,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
   m_PrefabInstance: {fileID: 121606785}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &281517419
+--- !u!65 &281517424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281517414}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.6166697, y: 7.4485145, z: 1.0731199}
+  m_Center: {x: -2.386114, y: 3.7242572, z: -0.17090592}
+--- !u!114 &281517425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20387,6 +20723,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &282434474
 GameObject:
   m_ObjectHideFlags: 0
@@ -23156,14 +23493,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 322663773}
+      addedObject: {fileID: 322663777}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &322663772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
   m_PrefabInstance: {fileID: 322663771}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &322663773
+--- !u!114 &322663777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23177,7 +23514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
   playerControlled: 1
   autoCycleWhenNotPlayerControlled: 0
-  keyboardToggleKey: 56
+  keyboardToggleKey: 48
   redTime: 8
   yellowTime: 2
   greenTime: 8
@@ -23187,6 +23524,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1001 &322946675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23554,13 +23892,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0067801224, y: 0.7312348, z: 0.008249914, w: -0.68204236}
-  m_LocalPosition: {x: -341.67, y: 4.83, z: 2.38}
+  m_LocalRotation: {x: -0.009496129, y: 0.8211342, z: -0.004884145, w: 0.5706353}
+  m_LocalPosition: {x: -342.5, y: 7.7, z: 2.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -0.161, y: 986.015, z: -1.213}
+  m_LocalEulerAnglesHint: {x: -0.161, y: 830.408, z: -1.213}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24971,6 +25309,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &348776022
 GameObject:
   m_ObjectHideFlags: 0
@@ -28209,6 +28548,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 1367755352}
   index: 6
+--- !u!1 &392647081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 392647082}
+  - component: {fileID: 392647083}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &392647082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392647081}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.48568726, y: -11.893043, z: -1.0978215}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 187164426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &392647083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392647081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 187164425}
+  index: 0
 --- !u!1 &392940513
 GameObject:
   m_ObjectHideFlags: 0
@@ -29857,14 +30242,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 416466749}
+      addedObject: {fileID: 416466753}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &416466748 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
   m_PrefabInstance: {fileID: 416466747}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &416466749
+--- !u!114 &416466753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29878,7 +30263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
   playerControlled: 1
   autoCycleWhenNotPlayerControlled: 0
-  keyboardToggleKey: 55
+  keyboardToggleKey: 57
   redTime: 8
   yellowTime: 2
   greenTime: 8
@@ -29888,6 +30273,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &418039570
 GameObject:
   m_ObjectHideFlags: 0
@@ -30198,6 +30584,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1001 &420259807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30721,6 +31108,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &427692173
 GameObject:
   m_ObjectHideFlags: 0
@@ -31853,6 +32241,66 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3667b1c4d7f532647b9156782c0c80f0, type: 3}
+--- !u!1 &440313738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440313740}
+  - component: {fileID: 440313739}
+  m_Layer: 0
+  m_Name: Lane_43
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &440313739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440313738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_43
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 1720974731}
+  stopWaypointIndex: 0
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 1257739406}
+  - {fileID: 1193735119}
+  connectedLanes:
+  - {fileID: 1366598320}
+  outgoingConnections: []
+--- !u!4 &440313740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440313738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -325.21487, y: 11.893043, z: -2.455593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1257739407}
+  - {fileID: 1193735120}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &441689529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35859,6 +36307,52 @@ Transform:
   - {fileID: 380486149}
   m_Father: {fileID: 1475997366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &498399823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498399825}
+  - component: {fileID: 498399824}
+  m_Layer: 0
+  m_Name: WP_03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &498399824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498399823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 2070922025}
+  index: 3
+--- !u!4 &498399825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498399823}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 304.27194, y: -11.893043, z: -1.4623635}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070922026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498452854
 GameObject:
   m_ObjectHideFlags: 0
@@ -37124,6 +37618,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &520982192
 GameObject:
   m_ObjectHideFlags: 0
@@ -38181,52 +38676,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!1 &529380309
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 529380310}
-  - component: {fileID: 529380311}
-  m_Layer: 0
-  m_Name: WP_09
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &529380310
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529380309}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 138.31242, y: 5.766987, z: 6.915251}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &529380311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529380309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 9
 --- !u!1001 &532446835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39989,6 +40438,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &547958089
 GameObject:
   m_ObjectHideFlags: 0
@@ -40197,52 +40647,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549730058}
   m_Mesh: {fileID: 6385602932717552147, guid: ec267df9d58af224e96deddfec326811, type: 3}
---- !u!1 &552053698
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 552053699}
-  - component: {fileID: 552053700}
-  m_Layer: 0
-  m_Name: WP_00
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &552053699
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552053698}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 651.7217, y: 5.766987, z: 6.232377}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &552053700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552053698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 0
 --- !u!1 &552503506
 GameObject:
   m_ObjectHideFlags: 0
@@ -40305,6 +40709,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552503506}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &552725964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 552725966}
+  - component: {fileID: 552725965}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &552725965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552725964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1404507225}
+  index: 1
+--- !u!4 &552725966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552725964}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -562.48584, y: -20.126608, z: -0.2849431}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404507226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552913311
 GameObject:
   m_ObjectHideFlags: 0
@@ -44758,52 +45208,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35807f23e7899e541b60b2fb2bbb51ef, type: 3}
---- !u!1 &589734503
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 589734504}
-  - component: {fileID: 589734505}
-  m_Layer: 0
-  m_Name: WP_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &589734504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589734503}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 636.6758, y: 5.766987, z: 6.7521152}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &589734505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589734503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 1
 --- !u!1 &592040075
 GameObject:
   m_ObjectHideFlags: 0
@@ -45153,6 +45557,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594310809}
   m_Mesh: {fileID: 6385602932717552147, guid: ec267df9d58af224e96deddfec326811, type: 3}
+--- !u!1 &597969626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597969627}
+  - component: {fileID: 597969628}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &597969627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597969626}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 421.7742, y: -11.893043, z: -1.1003008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1453861455}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &597969628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597969626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1453861454}
+  index: 1
 --- !u!1 &597998808
 GameObject:
   m_ObjectHideFlags: 0
@@ -45779,52 +46229,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604092322}
   m_Mesh: {fileID: 6421835126754341270, guid: 42577a18da1736145bc1bef9c2e04715, type: 3}
---- !u!1 &604659549
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 604659550}
-  - component: {fileID: 604659551}
-  m_Layer: 0
-  m_Name: WP_08
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &604659550
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604659549}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 184.47977, y: 5.766987, z: 7.3714623}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &604659551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604659549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 8
 --- !u!1 &604870538
 GameObject:
   m_ObjectHideFlags: 0
@@ -47677,6 +48081,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2000869323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &620713191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620713193}
+  - component: {fileID: 620713192}
+  m_Layer: 0
+  m_Name: Lane_43
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &620713192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620713191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_43
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 1522815160}
+  stopWaypointIndex: 1
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 1088224706}
+  - {fileID: 720444924}
+  - {fileID: 1423184422}
+  connectedLanes:
+  - {fileID: 1948434708}
+  outgoingConnections: []
+--- !u!4 &620713193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620713191}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 335.47458, y: 20.126608, z: 3.850401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1088224705}
+  - {fileID: 720444923}
+  - {fileID: 1423184423}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &622125758
 GameObject:
   m_ObjectHideFlags: 0
@@ -47870,6 +48336,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 483646183}
   index: 20
+--- !u!1 &624029345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2922220883736789182, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+  m_PrefabInstance: {fileID: 1935933368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &624029346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624029345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ed3c227765e5c46a464f9b6117cafc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.AI.TrafficCarAI
+  startLane: {fileID: 0}
+  speed: 40
+  turnSpeed: 6
+  detectionDistance: 8
+  crosswalkStopDistance: 7
+  waypointReachDistance: 1.2
+  minTurnSpeedFactor: 0.35
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  routeDecider: {fileID: 0}
+--- !u!54 &624029347
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624029345}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &625351818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49034,88 +49555,6 @@ Transform:
   - {fileID: 1748051517}
   m_Father: {fileID: 1711014681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &634783990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 634783992}
-  - component: {fileID: 634783991}
-  m_Layer: 0
-  m_Name: Lane_14
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &634783991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634783990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
-  laneName: Lane_14
-  speed: 10
-  loop: 0
-  trafficLight: {fileID: 322663773}
-  stopWaypointIndex: 11
-  canCarsPass: 1
-  laneColor: {r: 1, g: 0, b: 0.7880125, a: 1}
-  drawLane: 1
-  waypoints:
-  - {fileID: 552053700}
-  - {fileID: 589734505}
-  - {fileID: 1688117753}
-  - {fileID: 1502464624}
-  - {fileID: 1925070736}
-  - {fileID: 79194357}
-  - {fileID: 1993965288}
-  - {fileID: 956449622}
-  - {fileID: 604659551}
-  - {fileID: 529380311}
-  - {fileID: 1096928958}
-  - {fileID: 1950168343}
-  - {fileID: 924943275}
-  connectedLanes:
-  - {fileID: 1735375257}
-  outgoingConnections: []
---- !u!4 &634783992
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634783990}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -322.00784, y: -5.766987, z: -2.8756013}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 552053699}
-  - {fileID: 589734504}
-  - {fileID: 1688117752}
-  - {fileID: 1502464623}
-  - {fileID: 1925070735}
-  - {fileID: 79194356}
-  - {fileID: 1993965287}
-  - {fileID: 956449621}
-  - {fileID: 604659550}
-  - {fileID: 529380310}
-  - {fileID: 1096928957}
-  - {fileID: 1950168342}
-  - {fileID: 924943276}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &638738358
 GameObject:
   m_ObjectHideFlags: 0
@@ -49670,6 +50109,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1001 &645814789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52477,6 +52917,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 715443636}
   index: 20
+--- !u!1 &689312458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 689312460}
+  - component: {fileID: 689312459}
+  m_Layer: 0
+  m_Name: AutomaticTrafficSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &689312459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689312458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89971590faf1cbe40a57eecbb616178b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Managers.AutomaticTrafficSpawner
+  carPrefabs:
+  - {fileID: 624029345}
+  spawnLanes:
+  - {fileID: 187164425}
+  maxActiveCars: 5
+  spawnInterval: 1.2
+  autoStartOnPlay: 1
+  spawnBlockRadius: 2
+--- !u!4 &689312460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689312458}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690102484
 GameObject:
   m_ObjectHideFlags: 0
@@ -55046,6 +55538,52 @@ Transform:
   - {fileID: 1721529984}
   m_Father: {fileID: 2113136507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &720444922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720444923}
+  - component: {fileID: 720444924}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &720444923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720444922}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -37.674103, y: -20.126608, z: -0.47757244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 620713193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &720444924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720444922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 620713192}
+  index: 1
 --- !u!1 &722898453
 GameObject:
   m_ObjectHideFlags: 0
@@ -55905,52 +56443,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732127238}
   m_Mesh: {fileID: 4300000, guid: fd764d7ff467f8a47bf0105bd3bdb236, type: 3}
---- !u!1 &734256344
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 734256345}
-  - component: {fileID: 734256346}
-  m_Layer: 0
-  m_Name: WP_04
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &734256345
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734256344}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 301.98047, y: 5.766987, z: -0.48361778}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &734256346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734256344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 4
 --- !u!1 &734410477
 GameObject:
   m_ObjectHideFlags: 0
@@ -58223,6 +58715,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &765065974
 GameObject:
   m_ObjectHideFlags: 0
@@ -58861,6 +59354,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6674c1362ba984468bc1e71a2323d66, type: 3}
+--- !u!1 &772961231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 772961232}
+  - component: {fileID: 772961233}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &772961232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772961231}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -356.93686, y: -20.126608, z: -0.4513154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404507226}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &772961233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772961231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1404507225}
+  index: 0
 --- !u!1 &774603209
 GameObject:
   m_ObjectHideFlags: 0
@@ -61674,52 +62213,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 121f662ea65e2cf40a50c66470757a9e, type: 3}
---- !u!1 &810363358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 810363360}
-  - component: {fileID: 810363359}
-  m_Layer: 0
-  m_Name: WP_07
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &810363359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810363358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 7
---- !u!4 &810363360
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810363358}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 652.5939, y: 5.766987, z: -1.1238847}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &811513489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65161,6 +65654,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &862869273
 GameObject:
   m_ObjectHideFlags: 0
@@ -65717,6 +66211,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &871007673
 GameObject:
   m_ObjectHideFlags: 0
@@ -66189,6 +66684,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &887371649
 GameObject:
   m_ObjectHideFlags: 0
@@ -68200,52 +68696,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.86984104, y: 1, z: 1}
   m_Center: {x: 0.070510834, y: 0, z: 0}
---- !u!1 &924943274
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 924943276}
-  - component: {fileID: 924943275}
-  m_Layer: 0
-  m_Name: WP_12
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &924943275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924943274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 12
---- !u!4 &924943276
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924943274}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.247894, y: 5.766987, z: 6.5410724}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &926142162
 GameObject:
   m_ObjectHideFlags: 0
@@ -68951,6 +69401,52 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &933028282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 933028283}
+  - component: {fileID: 933028284}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &933028283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933028282}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 215.50351, y: -11.893043, z: -0.9350276}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070922026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &933028284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933028282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 2070922025}
+  index: 0
 --- !u!1 &933369453
 GameObject:
   m_ObjectHideFlags: 0
@@ -69561,6 +70057,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &945864500
 GameObject:
   m_ObjectHideFlags: 0
@@ -70216,52 +70713,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956112545}
   m_Mesh: {fileID: 6385602932717552147, guid: ec267df9d58af224e96deddfec326811, type: 3}
---- !u!1 &956449620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 956449621}
-  - component: {fileID: 956449622}
-  m_Layer: 0
-  m_Name: WP_07
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &956449621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956449620}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 251.84, y: 5.766987, z: 6.4423647}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &956449622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956449620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 7
 --- !u!1001 &957429659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70351,6 +70802,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &959206757
 GameObject:
   m_ObjectHideFlags: 0
@@ -74224,78 +74676,6 @@ Transform:
   - {fileID: 1271796119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1013103523
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1013103525}
-  - component: {fileID: 1013103524}
-  m_Layer: 0
-  m_Name: Lane_13
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1013103524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013103523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
-  laneName: Lane_13
-  speed: 10
-  loop: 0
-  trafficLight: {fileID: 1720974731}
-  stopWaypointIndex: 6
-  canCarsPass: 1
-  laneColor: {r: 1, g: 0, b: 0, a: 1}
-  drawLane: 1
-  waypoints:
-  - {fileID: 1733885595}
-  - {fileID: 1380506902}
-  - {fileID: 1041283671}
-  - {fileID: 1914241961}
-  - {fileID: 734256346}
-  - {fileID: 1607887961}
-  - {fileID: 1393818325}
-  - {fileID: 810363359}
-  connectedLanes:
-  - {fileID: 1366598320}
-  outgoingConnections: []
---- !u!4 &1013103525
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013103523}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -322.00784, y: -5.766987, z: -2.8756013}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1733885594}
-  - {fileID: 1380506901}
-  - {fileID: 1041283670}
-  - {fileID: 1914241960}
-  - {fileID: 734256345}
-  - {fileID: 1607887960}
-  - {fileID: 1393818324}
-  - {fileID: 810363360}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013551670
 GameObject:
   m_ObjectHideFlags: 0
@@ -75747,6 +76127,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 1240655159}
   index: 4
+--- !u!1 &1038361834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038361835}
+  - component: {fileID: 1038361836}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038361835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038361834}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.297455, y: -11.893043, z: -1.1366942}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 187164426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038361836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038361834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 187164425}
+  index: 1
 --- !u!1001 &1039397397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76029,52 +76455,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040346614}
   m_Mesh: {fileID: 4300000, guid: e8e3cf05b823af746b1e12e5bcfb4e65, type: 3}
---- !u!1 &1041283669
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1041283670}
-  - component: {fileID: 1041283671}
-  m_Layer: 0
-  m_Name: WP_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1041283670
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041283669}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.172943, y: 5.766987, z: -0.70780826}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1041283671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041283669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 2
 --- !u!1 &1041877581
 GameObject:
   m_ObjectHideFlags: 0
@@ -76487,6 +76867,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1046870626
 GameObject:
   m_ObjectHideFlags: 0
@@ -76668,6 +77049,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1052506399
 GameObject:
   m_ObjectHideFlags: 0
@@ -78631,6 +79013,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084008179}
   m_Mesh: {fileID: -4931521758496453707, guid: ec267df9d58af224e96deddfec326811, type: 3}
+--- !u!1 &1088224704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1088224705}
+  - component: {fileID: 1088224706}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1088224705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088224704}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.8756104, y: -20.126608, z: 0.07027888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 620713193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088224706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088224704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 620713192}
+  index: 0
 --- !u!1 &1090186255
 GameObject:
   m_ObjectHideFlags: 0
@@ -79167,52 +79595,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 1778350631}
   index: 9
---- !u!1 &1096928956
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1096928957}
-  - component: {fileID: 1096928958}
-  m_Layer: 0
-  m_Name: WP_10
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1096928957
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096928956}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 93.48244, y: 5.766987, z: 6.7486534}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1096928958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096928956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 10
 --- !u!1001 &1097188578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81676,6 +82058,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1129889686
 GameObject:
   m_ObjectHideFlags: 0
@@ -85075,6 +85458,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 483646183}
   index: 12
+--- !u!1 &1188397654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188397655}
+  - component: {fileID: 1188397656}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1188397655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188397654}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -171.64517, y: -20.126608, z: -0.22334194}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948434709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1188397656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188397654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1948434708}
+  index: 1
 --- !u!1 &1189229129
 GameObject:
   m_ObjectHideFlags: 0
@@ -85626,6 +86055,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66131d8838f42f545a30ce8606ce5365, type: 3}
+--- !u!1 &1193735118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1193735120}
+  - component: {fileID: 1193735119}
+  m_Layer: 0
+  m_Name: WP_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1193735119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193735118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 440313739}
+  index: 1
+--- !u!4 &1193735120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193735118}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 654.8345, y: -11.893043, z: -1.2024994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 440313740}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1194223433
 GameObject:
   m_ObjectHideFlags: 0
@@ -90597,6 +91072,52 @@ Transform:
   - {fileID: 622125759}
   m_Father: {fileID: 1355398916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1257739405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1257739407}
+  - component: {fileID: 1257739406}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1257739406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257739405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 440313739}
+  index: 0
+--- !u!4 &1257739407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257739405}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 595.2047, y: -11.893043, z: -0.9270966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 440313740}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1260398090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91280,6 +91801,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1269156573
 GameObject:
   m_ObjectHideFlags: 0
@@ -96041,6 +96563,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1331511072
 GameObject:
   m_ObjectHideFlags: 0
@@ -97389,6 +97912,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1344999207
 GameObject:
   m_ObjectHideFlags: 0
@@ -99624,7 +100148,7 @@ MonoBehaviour:
   - {fileID: 101597446}
   - {fileID: 386849547}
   connectedLanes:
-  - {fileID: 634783991}
+  - {fileID: 620713192}
   outgoingConnections: []
 --- !u!4 &1366598321
 Transform:
@@ -100864,52 +101388,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d3fc70685d97b748ac1264d8da02551, type: 3}
---- !u!1 &1380506900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1380506901}
-  - component: {fileID: 1380506902}
-  m_Layer: 0
-  m_Name: WP_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1380506901
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380506900}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.419525, y: 5.766987, z: -0.691931}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1380506902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380506900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 1
 --- !u!1001 &1382283035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101341,52 +101819,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!1 &1393818323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1393818324}
-  - component: {fileID: 1393818325}
-  m_Layer: 0
-  m_Name: WP_06
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1393818324
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393818323}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 551.84973, y: 5.766987, z: -0.6260066}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1393818325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393818323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 6
 --- !u!1 &1394355726
 GameObject:
   m_ObjectHideFlags: 0
@@ -102289,6 +102721,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404228852}
   m_Mesh: {fileID: -7180250497404416367, guid: 6df73838ccf25df4ebc85e9aa313b5a7, type: 3}
+--- !u!1 &1404507224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404507226}
+  - component: {fileID: 1404507225}
+  m_Layer: 0
+  m_Name: Lane_45
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1404507225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404507224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_45
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 416466753}
+  stopWaypointIndex: 0
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 772961233}
+  - {fileID: 552725965}
+  connectedLanes:
+  - {fileID: 201956991}
+  outgoingConnections: []
+--- !u!4 &1404507226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404507224}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 335.47458, y: 20.126608, z: 3.850401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 772961232}
+  - {fileID: 552725966}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404628852
 GameObject:
   m_ObjectHideFlags: 0
@@ -103692,6 +104184,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422952868}
   m_Mesh: {fileID: 4300000, guid: fd764d7ff467f8a47bf0105bd3bdb236, type: 3}
+--- !u!1 &1423184421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1423184423}
+  - component: {fileID: 1423184422}
+  m_Layer: 0
+  m_Name: WP_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1423184422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423184421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 620713192}
+  index: 2
+--- !u!4 &1423184423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423184421}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -63.982483, y: -20.126608, z: -0.49919128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 620713193}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1423385383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103935,6 +104473,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1425110941
 GameObject:
   m_ObjectHideFlags: 0
@@ -104233,6 +104772,63 @@ Transform:
   - {fileID: 949579144}
   m_Father: {fileID: 1331537157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1433622344
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -279.2769
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1499996
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.732521
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568985597124981416, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 913845681951795218, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
+      propertyPath: m_Name
+      value: casual_Male_K
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2435736d6adca23458edd7c80c901e3e, type: 3}
 --- !u!1 &1434120627
 GameObject:
   m_ObjectHideFlags: 0
@@ -105918,6 +106514,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453097391}
   m_Mesh: {fileID: 4300000, guid: fd764d7ff467f8a47bf0105bd3bdb236, type: 3}
+--- !u!1 &1453861453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1453861455}
+  - component: {fileID: 1453861454}
+  m_Layer: 0
+  m_Name: Lane_42
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1453861454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453861453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_42
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 2012722928}
+  stopWaypointIndex: 1
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 1918439803}
+  - {fileID: 597969628}
+  - {fileID: 1928100293}
+  connectedLanes:
+  - {fileID: 440313739}
+  outgoingConnections: []
+--- !u!4 &1453861455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453861453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -325.21487, y: 11.893043, z: -2.455593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1918439802}
+  - {fileID: 597969627}
+  - {fileID: 1928100294}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1453970932
 GameObject:
   m_ObjectHideFlags: 0
@@ -108747,52 +109405,6 @@ Transform:
   - {fileID: 1877435148}
   m_Father: {fileID: 220831120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1502464622
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1502464623}
-  - component: {fileID: 1502464624}
-  m_Layer: 0
-  m_Name: WP_03
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1502464623
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502464622}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 531.09344, y: 5.766987, z: 6.587878}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1502464624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502464622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 3
 --- !u!1 &1504275603
 GameObject:
   m_ObjectHideFlags: 0
@@ -110395,6 +111007,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1520936975
 GameObject:
   m_ObjectHideFlags: 0
@@ -110589,14 +111202,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1522815156}
+      addedObject: {fileID: 1522815160}
   m_SourcePrefab: {fileID: 100100000, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
 --- !u!1 &1522815155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2539229519970924559, guid: 2d56a28e40895a0479a1db4ee8333a98, type: 3}
   m_PrefabInstance: {fileID: 1522815154}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1522815156
+--- !u!114 &1522815160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110610,7 +111223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.TrafficLights.TrafficLightController
   playerControlled: 1
   autoCycleWhenNotPlayerControlled: 0
-  keyboardToggleKey: 53
+  keyboardToggleKey: 54
   redTime: 8
   yellowTime: 2
   greenTime: 8
@@ -110620,6 +111233,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1525568815
 GameObject:
   m_ObjectHideFlags: 0
@@ -115593,52 +116207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 1367755352}
   index: 7
---- !u!1 &1607887959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1607887960}
-  - component: {fileID: 1607887961}
-  m_Layer: 0
-  m_Name: WP_05
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1607887960
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607887959}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 345.64417, y: 5.766987, z: -0.10315013}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1607887961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607887959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 5
 --- !u!1 &1607916825
 GameObject:
   m_ObjectHideFlags: 0
@@ -119472,6 +120040,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1652763030
 GameObject:
   m_ObjectHideFlags: 0
@@ -121924,52 +122493,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 658020775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1688117751
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1688117752}
-  - component: {fileID: 1688117753}
-  m_Layer: 0
-  m_Name: WP_02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1688117752
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688117751}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 593.96704, y: 5.766987, z: 6.349579}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1688117753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1688117751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 2
 --- !u!1 &1688195222
 GameObject:
   m_ObjectHideFlags: 0
@@ -125181,6 +125704,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &1721529983
 GameObject:
   m_ObjectHideFlags: 0
@@ -125861,52 +126385,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
---- !u!1 &1733885593
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1733885594}
-  - component: {fileID: 1733885595}
-  m_Layer: 0
-  m_Name: WP_00
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1733885594
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733885593}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.032013, y: 5.766987, z: -1.1872315}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1733885595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1733885593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 0
+  autoDetectLampRenderers: 1
 --- !u!1 &1735375256
 GameObject:
   m_ObjectHideFlags: 0
@@ -125957,7 +126436,7 @@ MonoBehaviour:
   - {fileID: 1713313287}
   - {fileID: 1567022575}
   connectedLanes:
-  - {fileID: 1013103524}
+  - {fileID: 187164425}
   outgoingConnections: []
 --- !u!4 &1735375258
 Transform:
@@ -128419,6 +128898,52 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &1768265933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768265934}
+  - component: {fileID: 1768265935}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1768265934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768265933}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -105.97531, y: -20.126608, z: -0.4590664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948434709}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1768265935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768265933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1948434708}
+  index: 0
 --- !u!1 &1770807522
 GameObject:
   m_ObjectHideFlags: 0
@@ -137222,6 +137747,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 1735375257}
   index: 1
+--- !u!1 &1904990558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904990560}
+  - component: {fileID: 1904990559}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1904990559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904990558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 201956991}
+  index: 0
+--- !u!4 &1904990560
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904990558}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -605.64465, y: -20.126608, z: 0.0054399967}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 201956992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1905817488
 GameObject:
   m_ObjectHideFlags: 0
@@ -137603,52 +138174,6 @@ Transform:
   - {fileID: 421860868}
   m_Father: {fileID: 199412139}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
---- !u!1 &1914241959
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1914241960}
-  - component: {fileID: 1914241961}
-  m_Layer: 0
-  m_Name: WP_03
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1914241960
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914241959}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 132.81772, y: 5.766987, z: -0.8860924}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1013103525}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914241961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914241959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 1013103524}
-  index: 3
 --- !u!1 &1915052685
 GameObject:
   m_ObjectHideFlags: 0
@@ -137785,6 +138310,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
   owner: {fileID: 1735375257}
   index: 8
+--- !u!1 &1918439801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918439802}
+  - component: {fileID: 1918439803}
+  m_Layer: 0
+  m_Name: WP_00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1918439802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918439801}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 346.02515, y: -11.893043, z: -1.4009495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1453861455}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918439803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918439801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1453861454}
+  index: 0
 --- !u!1 &1918996028
 GameObject:
   m_ObjectHideFlags: 0
@@ -138261,52 +138832,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
---- !u!1 &1925070734
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1925070735}
-  - component: {fileID: 1925070736}
-  m_Layer: 0
-  m_Name: WP_04
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1925070735
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925070734}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 464.04395, y: 5.766987, z: 7.180241}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1925070736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925070734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 4
+  autoDetectLampRenderers: 1
 --- !u!1 &1925725514
 GameObject:
   m_ObjectHideFlags: 0
@@ -138527,6 +139053,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cf57bb0c3bf0e14dae5d174e1c87e3a, type: 3}
+--- !u!1 &1928100292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928100294}
+  - component: {fileID: 1928100293}
+  m_Layer: 0
+  m_Name: WP_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1928100293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928100292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
+  owner: {fileID: 1453861454}
+  index: 2
+--- !u!4 &1928100294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928100292}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 555.1572, y: -11.893043, z: -1.1614873}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1453861455}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928216740
 GameObject:
   m_ObjectHideFlags: 0
@@ -138957,6 +139529,69 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eebb56c82efbd8d4bb0eb6bd925a0e9d, type: 3}
+--- !u!1001 &1935933368
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -335.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000003880042
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577748686464113156, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922220883736789182, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      propertyPath: m_Name
+      value: Sport Car_39
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2922220883736789182, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 624029347}
+    - targetCorrespondingSourceObject: {fileID: 2922220883736789182, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 624029346}
+  m_SourcePrefab: {fileID: 100100000, guid: 041e4e3100f07184cacfe35dce34f022, type: 3}
 --- !u!1 &1937469307
 GameObject:
   m_ObjectHideFlags: 0
@@ -139939,6 +140574,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947415724}
   m_Mesh: {fileID: 4912728214048632834, guid: 42577a18da1736145bc1bef9c2e04715, type: 3}
+--- !u!1 &1948434707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1948434709}
+  - component: {fileID: 1948434708}
+  m_Layer: 0
+  m_Name: Lane_44
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1948434708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948434707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_44
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 225143965}
+  stopWaypointIndex: 1
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 1768265935}
+  - {fileID: 1188397656}
+  - {fileID: 116328092}
+  connectedLanes:
+  - {fileID: 1404507225}
+  outgoingConnections: []
+--- !u!4 &1948434709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948434707}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 335.47458, y: 20.126608, z: 3.850401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1768265934}
+  - {fileID: 1188397655}
+  - {fileID: 116328093}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1948622343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139996,52 +140693,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa7e8a645baeaf4baf6f5b8871afaea, type: 3}
---- !u!1 &1950168341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1950168342}
-  - component: {fileID: 1950168343}
-  m_Layer: 0
-  m_Name: WP_11
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1950168342
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950168341}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4781494, y: 5.766987, z: 6.574065}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1950168343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950168341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 11
 --- !u!1 &1950675688
 GameObject:
   m_ObjectHideFlags: 0
@@ -142991,52 +143642,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!1 &1993965286
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1993965287}
-  - component: {fileID: 1993965288}
-  m_Layer: 0
-  m_Name: WP_06
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1993965287
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993965286}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 342.71786, y: 5.766987, z: 6.649969}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 634783992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1993965288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993965286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e8626a17c386c4590bd0f790fcd1ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Waypoint
-  owner: {fileID: 634783991}
-  index: 6
 --- !u!1 &1994642331
 GameObject:
   m_ObjectHideFlags: 0
@@ -144466,6 +145071,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &2012760261
 GameObject:
   m_ObjectHideFlags: 0
@@ -146234,6 +146840,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1001 &2044886280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146323,6 +146930,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &2045377279
 GameObject:
   m_ObjectHideFlags: 0
@@ -147768,6 +148376,70 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1011940558}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2070922024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070922026}
+  - component: {fileID: 2070922025}
+  m_Layer: 0
+  m_Name: Lane_41
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070922025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070922024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a407456c1dae43a32e7c1b48828f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MyTrafficSystem.Lanes.Lane
+  laneName: Lane_41
+  speed: 10
+  loop: 0
+  trafficLight: {fileID: 1733692879}
+  stopWaypointIndex: 2
+  canCarsPass: 1
+  laneColor: {r: 0.15, g: 0.7, b: 1, a: 1}
+  drawLane: 1
+  waypoints:
+  - {fileID: 933028284}
+  - {fileID: 225766326}
+  - {fileID: 210207334}
+  - {fileID: 498399824}
+  connectedLanes:
+  - {fileID: 1453861454}
+  outgoingConnections: []
+--- !u!4 &2070922026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070922024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -325.21487, y: 11.893043, z: -2.455593}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 933028283}
+  - {fileID: 225766325}
+  - {fileID: 210207333}
+  - {fileID: 498399825}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2071470217
 GameObject:
@@ -149850,6 +150522,7 @@ MonoBehaviour:
   yellowRenderer: {fileID: 0}
   greenRenderer: {fileID: 0}
   emissionIntensity: 2.2
+  autoDetectLampRenderers: 1
 --- !u!1 &2099387187
 GameObject:
   m_ObjectHideFlags: 0
@@ -154119,8 +154792,6 @@ SceneRoots:
   - {fileID: 1778350632}
   - {fileID: 1161579307}
   - {fileID: 2000869323}
-  - {fileID: 1013103525}
-  - {fileID: 634783992}
   - {fileID: 1735375258}
   - {fileID: 1366598321}
   - {fileID: 715443637}
@@ -154147,3 +154818,14 @@ SceneRoots:
   - {fileID: 570224508}
   - {fileID: 671667303}
   - {fileID: 1602763839}
+  - {fileID: 1935933368}
+  - {fileID: 689312460}
+  - {fileID: 1433622344}
+  - {fileID: 187164426}
+  - {fileID: 2070922026}
+  - {fileID: 1453861455}
+  - {fileID: 440313740}
+  - {fileID: 620713193}
+  - {fileID: 1948434709}
+  - {fileID: 1404507226}
+  - {fileID: 201956992}

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace MyTrafficSystem.Pedestrians
 {
-    // Preferred naming aligned with Traffic Lane workflow.
+    // Compatibility alias to keep older scene references intact.
     [DisallowMultipleComponent]
     public class CitizenLane : CitizenPath
     {

@@ -27,6 +27,11 @@ namespace MyTrafficSystem.AI
         private Lane currentLane;
         private int waypointIndex;
         private float currentSpeed;
+        private bool lastStopForLight;
+
+        public Lane CurrentLane => currentLane;
+        public int CurrentWaypointIndex => waypointIndex;
+        public bool IsStoppedByAssignedLight => lastStopForLight;
 
         public void SetStartLane(Lane lane)
         {
@@ -100,6 +105,7 @@ namespace MyTrafficSystem.AI
             }
 
             bool stopForLight = currentLane.ShouldStopAtLight(waypointIndex);
+            lastStopForLight = stopForLight;
             bool stopForCar = DetectCarAhead(out float hitDistance);
             bool stopForCrosswalk = PedestrianCrossingZone.IsCrosswalkBlockingCars(transform.position, transform.forward, crosswalkStopDistance);
 
@@ -180,6 +186,14 @@ namespace MyTrafficSystem.AI
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(transform.position + Vector3.up * 0.5f, transform.forward * detectionDistance);
+
+#if UNITY_EDITOR
+            string laneName = currentLane != null ? currentLane.LaneName : "None";
+            string groupName = "N/A";
+            string obey = lastStopForLight ? "STOP (Assigned Red)" : "GO";
+            UnityEditor.Handles.color = lastStopForLight ? Color.red : Color.green;
+            UnityEditor.Handles.Label(transform.position + Vector3.up * 2.2f, $"Lane: {laneName}\nLight Group: {groupName}\nObeying: {obey}");
+#endif
         }
     }
 }

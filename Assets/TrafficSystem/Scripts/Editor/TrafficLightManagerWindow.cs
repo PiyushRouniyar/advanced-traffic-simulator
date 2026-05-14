@@ -76,7 +76,6 @@ namespace MyTrafficSystem.TrafficLights
                 lane.RefreshWaypointsFromChildren();
                 int stopIndex = Mathf.Clamp(lane.Waypoints.Count - 2, 0, Mathf.Max(0, lane.Waypoints.Count - 1));
                 lane.SetTrafficLight(light, stopIndex);
-                lane.SetCanCarsPass(laneOpenOnAssign);
                 EditorUtility.SetDirty(lane);
             }
         }

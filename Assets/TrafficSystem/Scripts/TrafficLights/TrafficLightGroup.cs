@@ -29,6 +29,8 @@ namespace MyTrafficSystem.TrafficLights
         public string GroupName => groupName;
         public KeyCode ActivationKey => assignedKey;
         public float RemainingTime => Mathf.Max(0f, phaseTimer);
+        public bool AutoSwitchEnabled => autoSwitch;
+        public IReadOnlyList<Lane> AssignedLanes => assignedLanes;
         public TrafficLightState DebugState => phase == AutoPhase.Green ? TrafficLightState.Green :
                                                phase == AutoPhase.Yellow ? TrafficLightState.Yellow :
                                                TrafficLightState.Red;
@@ -65,6 +67,17 @@ namespace MyTrafficSystem.TrafficLights
         public void SetActivationKey(KeyCode key)
         {
             assignedKey = key;
+        }
+
+        public void SetAutoSwitch(bool enabled)
+        {
+            autoSwitch = enabled;
+        }
+
+        public void ForceAllRedImmediate()
+        {
+            SetPhase(AutoPhase.Red);
+            AssignStateToLanes();
         }
 
         public bool MatchesKeyDown()
@@ -106,6 +119,7 @@ namespace MyTrafficSystem.TrafficLights
             int resolvedStop = stopWaypointIndex >= 0 ? stopWaypointIndex : (lane.StopWaypointIndex >= 0 ? lane.StopWaypointIndex : defaultStopWaypointIndex);
             lane.SetTrafficLightGroup(this, true);
             lane.SetTrafficLight(null, resolvedStop);
+            lane.SetCanCarsPass(CanLaneProceed(true));
         }
 
         public void AssignStateToLanes()
