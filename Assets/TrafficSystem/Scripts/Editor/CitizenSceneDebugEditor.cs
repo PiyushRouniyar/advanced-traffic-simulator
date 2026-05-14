@@ -15,6 +15,14 @@ namespace MyTrafficSystem.EditorTools
 
         private static void OnSceneGui(SceneView view)
         {
+            Event e = Event.current;
+            if (e != null && e.type == EventType.KeyDown && e.keyCode == KeyCode.F4)
+            {
+                CitizenDebugSettings.ShowTrafficAssignments = !CitizenDebugSettings.ShowTrafficAssignments;
+                e.Use();
+                view.Repaint();
+            }
+
             if (!CitizenDebugSettings.ShowDebug) return;
 
             if (CitizenDebugSettings.ShowLaneLabels)
