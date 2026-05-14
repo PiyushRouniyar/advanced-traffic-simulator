@@ -54,22 +54,23 @@
     <Compile Include="Assets\Synty\PolygonGeneric\Shaders\InterfaceOverrides\Editor\polygonShaderTransparent_UI.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\Fantastic City Generator\Editor\FCityGenerator.cs" />
-    <Compile Include="Assets\TrafficSystem\Scripts\Editor\PedestrianSpawnerWindow.cs" />
     <Compile Include="Assets\TrafficSystem\Scripts\Editor\TrafficSpawnerWindow.cs" />
     <Compile Include="Assets\TrafficSystem\Scripts\Editor\LaneEditor.cs" />
+    <Compile Include="Assets\TrafficSystem\Scripts\Editor\CitizenTrafficConnectWindow.cs" />
     <Compile Include="Assets\TrafficSystem\Scripts\Editor\CitizenLaneMakerWindow.cs" />
     <Compile Include="Assets\Synty\PolygonGeneric\Shaders\InterfaceOverrides\Editor\PolygonTransparencyShaderGUI.cs" />
     <Compile Include="Assets\Fantastic City Generator\DayNight\Editor\DayNightEditor.cs" />
     <Compile Include="Assets\Synty\SyntyPackageHelper\Editor\SyntyPackageHelperConfig.cs" />
     <Compile Include="Assets\TrafficSystem\Scripts\Editor\SceneWaypointEditor.cs" />
     <Compile Include="Assets\Synty\PolygonGeneric\Shaders\InterfaceOverrides\Editor\polygonShader_UI.cs" />
+    <Compile Include="Assets\TrafficSystem\Scripts\Editor\TrafficLightSceneDebugEditor.cs" />
     <Compile Include="Assets\TrafficSystem\Scripts\Editor\CitizenSpawnerWindow.cs" />
     <Compile Include="Assets\Fantastic City Generator\Editor\TCarEditor.cs" />
     <Compile Include="Assets\TrafficSystem\Scripts\Editor\TrafficSystemWindow.cs" />
     <Compile Include="Assets\Synty\SyntyPackageHelper\Editor\SyntyPackageHelper.cs" />
+    <Compile Include="Assets\TrafficSystem\Scripts\Editor\CitizenSceneDebugEditor.cs" />
     <Compile Include="Assets\TrafficSystem\Scripts\Editor\TrafficLightManagerWindow.cs" />
     <Compile Include="Assets\Synty\PolygonGeneric\Shaders\InterfaceOverrides\Editor\PolygonShaderGUI.cs" />
-    <Compile Include="Assets\TrafficSystem\Scripts\Editor\CitizenSceneWaypointEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
