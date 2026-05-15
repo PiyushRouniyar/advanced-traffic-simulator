@@ -23,6 +23,11 @@ namespace MyTrafficSystem.Gameplay.CCTV
         [SerializeField] private bool sortByPriority = true;
         [SerializeField] private bool enforceFixedMountEveryFrame = true;
         [SerializeField] private bool allowKeyboardSwitching = true;
+        [SerializeField] private bool highQualityCctvRendering = true;
+        [SerializeField] private int targetCctvWidth = 1920;
+        [SerializeField] private int targetCctvHeight = 1080;
+        [SerializeField] private bool dynamicQualityByScreenSize = true;
+        [SerializeField] private int cctvAntiAliasing = 4;
         [SerializeField] private KeyCode freeRoamToggleKey = KeyCode.F;
         [SerializeField] private float freeRoamMoveSpeed = 16f;
         [SerializeField] private float freeRoamLookSpeed = 90f;
@@ -34,6 +39,7 @@ namespace MyTrafficSystem.Gameplay.CCTV
         private float currentBlendTime;
         private bool cameraSelectionLocked;
         private bool freeRoamEnabled;
+        private bool externalCameraControl;
         private float freeRoamYaw;
         private float freeRoamPitch;
 
@@ -63,6 +69,7 @@ namespace MyTrafficSystem.Gameplay.CCTV
         public string ActiveTrafficGroupName => ActivePoint != null ? ActivePoint.TrafficGroupLabel : "No Group";
         public bool CameraSelectionLocked => cameraSelectionLocked;
         public bool FreeRoamEnabled => freeRoamEnabled;
+        public bool ExternalCameraControl => externalCameraControl;
 
         public string GetCameraLabel(int index)
         {
@@ -85,12 +92,15 @@ namespace MyTrafficSystem.Gameplay.CCTV
                 Vector3 e = gameplayCamera.transform.eulerAngles;
                 freeRoamYaw = e.y;
                 freeRoamPitch = e.x;
+                ApplyCctvQualitySettings();
             }
         }
 
         private void Update()
         {
-            if (cameraAnchors.Count == 0 || gameplayCamera == null) return;
+            if (gameplayCamera == null) return;
+            if (externalCameraControl) return;
+            if (cameraAnchors.Count == 0) return;
 
             if (Input.GetKeyDown(freeRoamToggleKey))
             {
@@ -134,6 +144,7 @@ namespace MyTrafficSystem.Gameplay.CCTV
 
         private void LateUpdate()
         {
+            if (externalCameraControl) return;
             if (freeRoamEnabled) return;
             if (!enforceFixedMountEveryFrame || gameplayCamera == null || blendTarget == null) return;
             if (switchMode == SwitchMode.HardCut)
@@ -225,6 +236,20 @@ namespace MyTrafficSystem.Gameplay.CCTV
             cameraSelectionLocked = locked;
         }
 
+        public void SetExternalCameraControl(bool enabled)
+        {
+            externalCameraControl = enabled;
+            if (enabled)
+            {
+                freeRoamEnabled = false;
+                blendTarget = null;
+            }
+            else if (activeCameraIndex >= 0 && activeCameraIndex < cameraAnchors.Count)
+            {
+                SetActiveCamera(activeCameraIndex, instant: true);
+            }
+        }
+
         public void SetFreeRoamEnabled(bool enabled)
         {
             freeRoamEnabled = enabled;
@@ -283,6 +308,30 @@ namespace MyTrafficSystem.Gameplay.CCTV
             float zoomFov = point.ZoomFieldOfView;
             bool zoomed = Mathf.Abs(gameplayCamera.fieldOfView - zoomFov) < 0.5f;
             gameplayCamera.fieldOfView = zoomed ? normalFov : zoomFov;
+        }
+
+        private void ApplyCctvQualitySettings()
+        {
+            if (!highQualityCctvRendering || gameplayCamera == null) return;
+
+            gameplayCamera.allowMSAA = true;
+            gameplayCamera.allowHDR = true;
+            gameplayCamera.useOcclusionCulling = true;
+
+            int aa = Mathf.Clamp(cctvAntiAliasing, 1, 8);
+            if (aa != 1 && aa != 2 && aa != 4 && aa != 8) aa = 4;
+            QualitySettings.antiAliasing = aa;
+
+            if (dynamicQualityByScreenSize)
+            {
+                targetCctvWidth = Mathf.Max(1280, Screen.width);
+                targetCctvHeight = Mathf.Max(720, Screen.height);
+            }
+
+            if (Screen.currentResolution.width < targetCctvWidth || Screen.currentResolution.height < targetCctvHeight)
+            {
+                Screen.SetResolution(targetCctvWidth, targetCctvHeight, Screen.fullScreenMode);
+            }
         }
     }
 }

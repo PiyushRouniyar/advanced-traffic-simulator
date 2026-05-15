@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MyTrafficSystem.AI;
 using MyTrafficSystem.Gameplay.CCTV;
+using MyTrafficSystem.Gameplay.FreeMode;
 using MyTrafficSystem.Lanes;
 using MyTrafficSystem.Managers;
 using MyTrafficSystem.Pedestrians;
@@ -31,6 +32,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
         [Header("References")]
         [SerializeField] private CCTVCameraSystem cctv;
         [SerializeField] private MasterTrafficLightController masterLights;
+        [SerializeField] private FreeModeManager freeModeManager;
 
         [Header("Challenge")]
         [SerializeField] private float challengeDurationSeconds = 30f;
@@ -44,6 +46,8 @@ namespace MyTrafficSystem.Gameplay.Challenge
         [SerializeField] private Color movingVehicleColor = new Color(0.2f, 1f, 0.35f, 0.95f);
         [SerializeField] private Color alertVehicleColor = new Color(1f, 0.25f, 0.25f, 0.98f);
         [SerializeField] private float networkFeedRefreshInterval = 0.55f;
+        [SerializeField] private int mediumIncidentThreshold = 50;
+        [SerializeField] private int highIncidentThreshold = 100;
 
         [Header("UI")]
         [SerializeField] private Canvas canvas;
@@ -111,6 +115,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
 
             if (cctv == null) cctv = FindFirstObjectByType<CCTVCameraSystem>(FindObjectsInactive.Include);
             if (masterLights == null) masterLights = FindFirstObjectByType<MasterTrafficLightController>(FindObjectsInactive.Include);
+            if (freeModeManager == null) freeModeManager = FindFirstObjectByType<FreeModeManager>(FindObjectsInactive.Include);
 
             BuildUIIfMissing();
             WireUI();
@@ -198,6 +203,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             waitingVehicles.Clear();
             RefreshCameraNetworkFeed(true);
 
+            if (freeModeManager != null) freeModeManager.ExitFreeMode();
             cctv.SetFreeRoamEnabled(false);
             cctv.SetCameraSelectionLocked(true);
             SetMonitorButtonState(false, "MONITORING...");
@@ -208,7 +214,14 @@ namespace MyTrafficSystem.Gameplay.Challenge
         {
             active = false;
             cctv?.SetCameraSelectionLocked(false);
-            cctv?.SetFreeRoamEnabled(true);
+            if (freeModeManager != null)
+            {
+                freeModeManager.EnterFreeMode();
+            }
+            else
+            {
+                cctv?.SetFreeRoamEnabled(true);
+            }
             SetMonitorButtonState(true, "MONITOR");
             HideResult();
             ClearVehicleMarkers();
@@ -249,10 +262,17 @@ namespace MyTrafficSystem.Gameplay.Challenge
 
             float avgCongestion = samples > 0 ? cumulativeCongestion / samples : 0f;
             float flow = 1f - avgCongestion;
-            string rating = flow >= 0.8f && incidents == 0 ? "EXCELLENT" : flow >= 0.6f ? "GOOD" : flow >= 0.4f ? "FAIR" : "POOR";
             int finalScore = Mathf.Max(0, score);
+            string incidentGrade = GetIncidentGrade(incidents);
+            float performanceScore01 = GetPerformanceScore01(flow, incidents);
+            string overallGrade = GetOverallGrade(performanceScore01);
 
-            ShowResult($"SHIFT COMPLETE\nTRAFFIC FLOW: {rating}\nINCIDENTS: {incidents}\nFINAL SCORE: {finalScore}");
+            ShowResult(
+                $"SHIFT COMPLETE\n" +
+                $"FLOW: {(flow * 100f):0}%  ({GetFlowGrade(flow)})\n" +
+                $"INCIDENTS: {incidents}  ({incidentGrade})\n" +
+                $"OVERALL GRADE: {overallGrade}\n" +
+                $"FINAL SCORE: {finalScore}");
         }
 
         private void ConfigureMonitoringContextForActiveCamera()
@@ -547,6 +567,43 @@ namespace MyTrafficSystem.Gameplay.Challenge
             if (congestion01 >= 0.45f) return "MED";
             if (congestion01 >= 0.22f) return "LOW";
             return "CLEAR";
+        }
+
+        private string GetIncidentGrade(int count)
+        {
+            if (count >= highIncidentThreshold) return "HIGH";
+            if (count >= mediumIncidentThreshold) return "MEDIUM";
+            return "LOW";
+        }
+
+        private static string GetFlowGrade(float flow01)
+        {
+            if (flow01 >= 0.85f) return "EXCELLENT";
+            if (flow01 >= 0.7f) return "GOOD";
+            if (flow01 >= 0.5f) return "MEDIUM";
+            return "POOR";
+        }
+
+        private float GetPerformanceScore01(float flow01, int incidentCount)
+        {
+            float flowScore = Mathf.Clamp01(flow01);
+            float incidentPenalty01;
+            if (incidentCount >= highIncidentThreshold) incidentPenalty01 = 1f;
+            else if (incidentCount >= mediumIncidentThreshold) incidentPenalty01 = 0.55f;
+            else incidentPenalty01 = Mathf.InverseLerp(mediumIncidentThreshold, 0f, incidentCount) * 0.25f;
+
+            // 70% flow quality + 30% incident safety.
+            float safetyScore = 1f - incidentPenalty01;
+            return Mathf.Clamp01(flowScore * 0.7f + safetyScore * 0.3f);
+        }
+
+        private static string GetOverallGrade(float score01)
+        {
+            if (score01 >= 0.9f) return "S";
+            if (score01 >= 0.8f) return "A";
+            if (score01 >= 0.65f) return "B";
+            if (score01 >= 0.5f) return "C";
+            return "D";
         }
 
         private void RefreshIdleUI()

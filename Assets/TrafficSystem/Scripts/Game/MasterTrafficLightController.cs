@@ -8,7 +8,7 @@ namespace MyTrafficSystem.Gameplay
         private static MasterTrafficLightController instance;
 
         [Header("Optional Hotkeys")]
-        [SerializeField] private bool enableKeyboardShortcuts;
+        [SerializeField] private bool enableKeyboardShortcuts = true;
         [SerializeField] private KeyCode setAllGreenKey = KeyCode.F6;
         [SerializeField] private KeyCode setAllRedKey = KeyCode.F7;
         [SerializeField] private KeyCode toggleAllKey = KeyCode.F8;
@@ -39,13 +39,12 @@ namespace MyTrafficSystem.Gameplay
             }
 
             instance = this;
+            enableKeyboardShortcuts = true;
             RefreshLights();
         }
 
         private void Update()
         {
-            if (!enableKeyboardShortcuts) return;
-
             if (Input.GetKeyDown(setAllGreenKey))
             {
                 SetAllGreen();
@@ -54,7 +53,7 @@ namespace MyTrafficSystem.Gameplay
             {
                 SetAllRed();
             }
-            else if (Input.GetKeyDown(toggleAllKey))
+            else if (enableKeyboardShortcuts && Input.GetKeyDown(toggleAllKey))
             {
                 ToggleAll();
             }
