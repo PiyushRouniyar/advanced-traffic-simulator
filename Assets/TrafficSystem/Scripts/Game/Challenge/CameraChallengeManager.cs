@@ -38,11 +38,17 @@ namespace MyTrafficSystem.Gameplay.Challenge
         [SerializeField] private float fallbackMonitorRadius = 120f;
         [SerializeField] private LayerMask vehicleDetectionMask = ~0;
         [SerializeField] private bool requireCameraForwardVisibility = true;
+        [SerializeField] private bool strictAssignedLaneOnly = false;
         [SerializeField] private bool showVehicleDetectionOverlay = true;
+        [SerializeField] private bool showDetectionStateOnCars = true;
+        [SerializeField] private Color movingVehicleColor = new Color(0.2f, 1f, 0.35f, 0.95f);
+        [SerializeField] private Color alertVehicleColor = new Color(1f, 0.25f, 0.25f, 0.98f);
+        [SerializeField] private float networkFeedRefreshInterval = 0.55f;
 
         [Header("UI")]
         [SerializeField] private Canvas canvas;
         [SerializeField] private Button monitorButton;
+        [SerializeField] private Button freeRoamButton;
         [SerializeField] private TextMeshProUGUI cameraText;
         [SerializeField] private TextMeshProUGUI intersectionText;
         [SerializeField] private TextMeshProUGUI timerText;
@@ -51,6 +57,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
         [SerializeField] private TextMeshProUGUI flowText;
         [SerializeField] private TextMeshProUGUI incidentText;
         [SerializeField] private TextMeshProUGUI laneListText;
+        [SerializeField] private TextMeshProUGUI cameraBadgeText;
         [SerializeField] private TextMeshProUGUI resultText;
         [SerializeField] private CanvasGroup resultGroup;
 
@@ -61,6 +68,10 @@ namespace MyTrafficSystem.Gameplay.Challenge
         private readonly HashSet<TrafficCarAI> currentFrameVehicles = new HashSet<TrafficCarAI>();
         private readonly List<TrafficCarAI> enteredVehicles = new List<TrafficCarAI>();
         private readonly List<TrafficCarAI> exitedVehicles = new List<TrafficCarAI>();
+        private readonly HashSet<TrafficCarAI> waitingVehicles = new HashSet<TrafficCarAI>();
+        private readonly Dictionary<TrafficCarAI, LineRenderer> markerByVehicle = new Dictionary<TrafficCarAI, LineRenderer>();
+        private readonly List<string> cameraNetworkLines = new List<string>();
+        private readonly Collider[] networkOverlapBuffer = new Collider[256];
 
         private readonly Collider[] overlapBuffer = new Collider[512];
 
@@ -79,6 +90,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
         private float activeVerticalTolerance;
         private float activeIntersectionInfluenceRadius;
         private float baseCarSpawnInterval = -1f;
+        private float networkFeedTimer;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void AutoCreate()
@@ -123,6 +135,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
                 sampleTimer = Mathf.Max(0.05f, sampleInterval);
                 EvaluateLiveMetrics();
                 ApplyPressureTick();
+                RefreshCameraNetworkFeed(false);
                 UpdateActiveUI();
             }
 
@@ -149,6 +162,8 @@ namespace MyTrafficSystem.Gameplay.Challenge
                 if (screen.z <= 0f) continue;
 
                 float y = Screen.height - screen.y;
+                bool alert = waitingVehicles.Contains(car);
+                GUI.color = alert ? alertVehicleColor : movingVehicleColor;
                 Rect box = new Rect(screen.x - 24f, y - 24f, 48f, 48f);
                 GUI.Box(box, string.Empty);
 
@@ -172,6 +187,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             vehiclesDetected = 0;
             waitingVehiclesDetected = 0;
             latestAverageCongestion = 0f;
+            networkFeedTimer = 0f;
 
             activeCameraPoint = cctv.ActivePoint;
             ConfigureMonitoringContextForActiveCamera();
@@ -179,23 +195,47 @@ namespace MyTrafficSystem.Gameplay.Challenge
             currentFrameVehicles.Clear();
             enteredVehicles.Clear();
             exitedVehicles.Clear();
+            waitingVehicles.Clear();
+            RefreshCameraNetworkFeed(true);
 
+            cctv.SetFreeRoamEnabled(false);
             cctv.SetCameraSelectionLocked(true);
             SetMonitorButtonState(false, "MONITORING...");
             HideResult();
         }
 
-        public void ReportIncident(Vector3 worldPos, Lane incidentLane = null)
+        public void EnterFreeRoamMode()
+        {
+            active = false;
+            cctv?.SetCameraSelectionLocked(false);
+            cctv?.SetFreeRoamEnabled(true);
+            SetMonitorButtonState(true, "MONITOR");
+            HideResult();
+            ClearVehicleMarkers();
+            trackedVehicles.Clear();
+            currentFrameVehicles.Clear();
+            enteredVehicles.Clear();
+            exitedVehicles.Clear();
+            waitingVehicles.Clear();
+            if (laneListText != null)
+            {
+                laneListText.text = "FREE ROAM ENABLED\nSwitch cameras and roam the full city.\nPress MONITOR to start localized challenge.";
+            }
+        }
+
+        public void ReportIncident(Vector3 worldPos, Lane incidentLane = null, Lane otherLane = null)
         {
             if (!active) return;
-            if (incidentLane != null && !monitoredLaneSet.Contains(incidentLane)) return;
-            if (!IsPointInsideMonitoringArea(worldPos, null)) return;
+            bool laneAllowed = (incidentLane != null && monitoredLaneSet.Contains(incidentLane)) ||
+                               (otherLane != null && monitoredLaneSet.Contains(otherLane));
+            bool pointAllowed = IsPointInsideMonitoringArea(worldPos, incidentLane ?? otherLane);
+            if (!laneAllowed && !pointAllowed) return;
 
             incidents++;
             score -= 120;
             if (incidentText != null)
             {
-                incidentText.text = $"INCIDENTS: {incidents}  ? LOCAL INCIDENT";
+                incidentText.text = $"INCIDENTS: {incidents}  LOCAL INCIDENT";
                 incidentText.color = new Color(1f, 0.35f, 0.35f, 1f);
             }
         }
@@ -205,6 +245,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             active = false;
             cctv.SetCameraSelectionLocked(false);
             SetMonitorButtonState(true, "MONITOR");
+            ClearVehicleMarkers();
 
             float avgCongestion = samples > 0 ? cumulativeCongestion / samples : 0f;
             float flow = 1f - avgCongestion;
@@ -231,6 +272,20 @@ namespace MyTrafficSystem.Gameplay.Challenge
             {
                 Lane lane = assignedLanes[i];
                 if (lane != null) monitoredLaneSet.Add(lane);
+            }
+
+            // Expand one hop from assigned lanes so lane-switching cars in the same intersection remain detectable.
+            List<Lane> seedLanes = new List<Lane>(monitoredLaneSet);
+            for (int i = 0; i < seedLanes.Count; i++)
+            {
+                Lane lane = seedLanes[i];
+                if (lane == null) continue;
+                IReadOnlyList<Lane> connected = lane.ConnectedLanes;
+                for (int j = 0; j < connected.Count; j++)
+                {
+                    Lane next = connected[j];
+                    if (next != null) monitoredLaneSet.Add(next);
+                }
             }
 
             IReadOnlyList<TrafficIntersectionManager> assignedIntersections = activeCameraPoint.AssignedIntersections;
@@ -317,6 +372,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             }
 
             int localWaiting = 0;
+            waitingVehicles.Clear();
             foreach (TrafficCarAI car in trackedVehicles)
             {
                 if (car == null) continue;
@@ -334,6 +390,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
                     {
                         st.waitingVehicles++;
                         localWaiting++;
+                        waitingVehicles.Add(car);
                     }
                     break;
                 }
@@ -359,12 +416,13 @@ namespace MyTrafficSystem.Gameplay.Challenge
             int efficiencyGain = Mathf.RoundToInt((1f - latestAverageCongestion) * 18f);
             int incidentPenalty = incidents * 2;
             score += Mathf.Max(0, efficiencyGain - incidentPenalty);
+            UpdateVehicleMarkers();
         }
 
         private bool IsCarInsideActiveMonitorContext(TrafficCarAI car)
         {
             if (car == null || car.CurrentLane == null) return false;
-            if (!monitoredLaneSet.Contains(car.CurrentLane)) return false;
+            if (strictAssignedLaneOnly && monitoredLaneSet.Count > 0 && !monitoredLaneSet.Contains(car.CurrentLane)) return false;
 
             Vector3 p = car.transform.position;
             if (!IsPointInsideMonitoringArea(p, car.CurrentLane)) return false;
@@ -387,7 +445,8 @@ namespace MyTrafficSystem.Gameplay.Challenge
             if (requireCameraForwardVisibility)
             {
                 float angle = Vector3.Angle(activeCameraPoint.transform.forward, toPoint.normalized);
-                if (angle > activeCameraPoint.FieldOfView * 0.65f) return false;
+                float allowedAngle = Mathf.Max(65f, activeCameraPoint.FieldOfView * 0.95f);
+                if (angle > allowedAngle) return false;
             }
 
             if (monitoredIntersectionSet.Count > 0)
@@ -438,13 +497,14 @@ namespace MyTrafficSystem.Gameplay.Challenge
         {
             float flow = 1f - latestAverageCongestion;
 
-            if (cameraText != null) cameraText.text = $"CAMERA: {cctv.ActiveCameraLabel}";
+            if (cameraText != null) cameraText.text = $"CAMERA: {cctv.ActiveCameraObjectName}";
             if (intersectionText != null) intersectionText.text = $"INTERSECTION: {cctv.ActiveIntersectionName}";
             if (timerText != null) timerText.text = $"TIMER: {Mathf.CeilToInt(timer):00}s";
             if (scoreText != null) scoreText.text = $"SCORE: {Mathf.Max(0, score)}";
             if (congestionText != null) congestionText.text = $"CONGESTION: {(latestAverageCongestion * 100f):0}% ({GetCongestionStatus(latestAverageCongestion)})";
             if (flowText != null) flowText.text = $"FLOW: {(flow * 100f):0}%";
             if (incidentText != null) incidentText.text = $"INCIDENTS: {incidents}";
+            if (cameraBadgeText != null) cameraBadgeText.text = $"CAM {Mathf.Max(1, cctv.ActiveCameraIndex + 1)}";
 
             if (laneListText != null)
             {
@@ -455,6 +515,15 @@ namespace MyTrafficSystem.Gameplay.Challenge
                 if (enteredVehicles.Count > 0) sb.AppendLine($"ENTERED: +{enteredVehicles.Count}");
                 if (exitedVehicles.Count > 0) sb.AppendLine($"LEFT: -{exitedVehicles.Count}");
                 sb.AppendLine();
+                if (cameraNetworkLines.Count > 0)
+                {
+                    sb.AppendLine("NETWORK FEED:");
+                    for (int i = 0; i < cameraNetworkLines.Count; i++)
+                    {
+                        sb.AppendLine(cameraNetworkLines[i]);
+                    }
+                    sb.AppendLine();
+                }
 
                 int max = Mathf.Min(10, laneStats.Count);
                 for (int i = 0; i < max; i++)
@@ -477,18 +546,132 @@ namespace MyTrafficSystem.Gameplay.Challenge
 
         private void RefreshIdleUI()
         {
-            if (cameraText != null && cctv != null) cameraText.text = $"CAMERA: {cctv.ActiveCameraLabel}";
+            if (cameraText != null && cctv != null) cameraText.text = $"CAMERA: {cctv.ActiveCameraObjectName}";
             if (intersectionText != null && cctv != null) intersectionText.text = $"INTERSECTION: {cctv.ActiveIntersectionName}";
             if (timerText != null) timerText.text = "TIMER: --";
             if (scoreText != null) scoreText.text = "SCORE: --";
             if (congestionText != null) congestionText.text = "CONGESTION: --";
             if (flowText != null) flowText.text = "FLOW: --";
+            if (cameraBadgeText != null && cctv != null) cameraBadgeText.text = $"CAM {Mathf.Max(1, cctv.ActiveCameraIndex + 1)}";
             if (incidentText != null)
             {
                 incidentText.text = "INCIDENTS: 0";
                 incidentText.color = new Color(0.84f, 0.92f, 1f, 1f);
             }
             if (laneListText != null) laneListText.text = "Press MONITOR to start a localized CCTV shift.";
+            ClearVehicleMarkers();
+        }
+
+        private void RefreshCameraNetworkFeed(bool force)
+        {
+            if (cctv == null) return;
+            networkFeedTimer -= sampleInterval;
+            if (!force && networkFeedTimer > 0f) return;
+            networkFeedTimer = Mathf.Max(0.2f, networkFeedRefreshInterval);
+
+            cameraNetworkLines.Clear();
+            CCTVCameraPoint[] points = FindObjectsByType<CCTVCameraPoint>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            int shown = 0;
+            for (int i = 0; i < points.Length; i++)
+            {
+                CCTVCameraPoint point = points[i];
+                if (point == null) continue;
+                int count = CountVehiclesForCamera(point);
+                string marker = point == activeCameraPoint ? ">" : " ";
+                cameraNetworkLines.Add($"{marker} {point.name}: {count}");
+                shown++;
+                if (shown >= 6) break;
+            }
+        }
+
+        private int CountVehiclesForCamera(CCTVCameraPoint point)
+        {
+            Vector3 origin = point.transform.position;
+            float radius = point.MonitorRadius;
+            int overlapCount = Physics.OverlapSphereNonAlloc(origin, radius, networkOverlapBuffer, vehicleDetectionMask, QueryTriggerInteraction.Ignore);
+            int count = 0;
+            for (int i = 0; i < overlapCount; i++)
+            {
+                Collider col = networkOverlapBuffer[i];
+                if (col == null) continue;
+                TrafficCarAI car = col.GetComponentInParent<TrafficCarAI>();
+                if (car == null || !car.isActiveAndEnabled) continue;
+                count++;
+            }
+            return count;
+        }
+
+        private void UpdateVehicleMarkers()
+        {
+            if (!showDetectionStateOnCars) return;
+
+            foreach (TrafficCarAI car in trackedVehicles)
+            {
+                if (car == null) continue;
+                if (!markerByVehicle.TryGetValue(car, out LineRenderer marker) || marker == null)
+                {
+                    marker = CreateVehicleMarker(car.transform);
+                    markerByVehicle[car] = marker;
+                }
+
+                UpdateVehicleMarkerShape(marker, car);
+                Color c = waitingVehicles.Contains(car) ? alertVehicleColor : movingVehicleColor;
+                marker.startColor = c;
+                marker.endColor = c;
+            }
+
+            List<TrafficCarAI> toRemove = new List<TrafficCarAI>();
+            foreach (KeyValuePair<TrafficCarAI, LineRenderer> kv in markerByVehicle)
+            {
+                if (kv.Key == null || !trackedVehicles.Contains(kv.Key))
+                {
+                    if (kv.Value != null) Destroy(kv.Value.gameObject);
+                    toRemove.Add(kv.Key);
+                }
+            }
+            for (int i = 0; i < toRemove.Count; i++) markerByVehicle.Remove(toRemove[i]);
+        }
+
+        private static LineRenderer CreateVehicleMarker(Transform parentCar)
+        {
+            GameObject marker = new GameObject("DetectionMarker");
+            marker.name = "DetectionMarker";
+            marker.transform.SetParent(parentCar, true);
+            LineRenderer lr = marker.AddComponent<LineRenderer>();
+            lr.useWorldSpace = true;
+            lr.loop = true;
+            lr.positionCount = 4;
+            lr.widthMultiplier = 0.06f;
+            lr.alignment = LineAlignment.View;
+            lr.material = new Material(Shader.Find("Sprites/Default"));
+            return lr;
+        }
+
+        private static void UpdateVehicleMarkerShape(LineRenderer marker, TrafficCarAI car)
+        {
+            if (marker == null || car == null) return;
+
+            Bounds b = new Bounds(car.transform.position + Vector3.up * 0.7f, new Vector3(1.4f, 0.1f, 2.8f));
+            Collider col = car.GetComponent<Collider>();
+            if (col != null) b = col.bounds;
+
+            float y = b.center.y + b.extents.y + 0.12f;
+            float x = Mathf.Max(0.4f, b.extents.x + 0.15f);
+            float z = Mathf.Max(0.8f, b.extents.z + 0.2f);
+            marker.SetPosition(0, new Vector3(b.center.x - x, y, b.center.z - z));
+            marker.SetPosition(1, new Vector3(b.center.x + x, y, b.center.z - z));
+            marker.SetPosition(2, new Vector3(b.center.x + x, y, b.center.z + z));
+            marker.SetPosition(3, new Vector3(b.center.x - x, y, b.center.z + z));
+        }
+
+        private void ClearVehicleMarkers()
+        {
+            foreach (KeyValuePair<TrafficCarAI, LineRenderer> kv in markerByVehicle)
+            {
+                if (kv.Value != null) Destroy(kv.Value.gameObject);
+            }
+            markerByVehicle.Clear();
+            waitingVehicles.Clear();
         }
 
         private void BuildUIIfMissing()
@@ -499,6 +682,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             }
 
             monitorButton = null;
+            freeRoamButton = null;
             cameraText = null;
             intersectionText = null;
             timerText = null;
@@ -507,6 +691,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             flowText = null;
             incidentText = null;
             laneListText = null;
+            cameraBadgeText = null;
             resultText = null;
             resultGroup = null;
 
@@ -520,7 +705,8 @@ namespace MyTrafficSystem.Gameplay.Challenge
             Image topLeft = Panel(root, "TopLeft", new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(260f, -105f), new Vector2(500f, 190f));
             Image topRight = Panel(root, "TopRight", new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(-220f, -100f), new Vector2(450f, 170f));
             Image left = Panel(root, "LeftPanel", new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(250f, -20f), new Vector2(540f, 500f));
-            Image centerBottom = Panel(root, "CenterBottom", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 90f), new Vector2(340f, 90f));
+            Image centerBottom = Panel(root, "CenterBottom", new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0f, 90f), new Vector2(620f, 90f));
+            Image camBadgePanel = Panel(root, "CameraBadgePanel", new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(130f, 55f), new Vector2(210f, 58f));
             resultGroup = Overlay(root, "ResultOverlay");
             resultText = Label(resultGroup.transform, "ResultText", "", new Vector2(0f, 0f), 44f, true);
 
@@ -536,8 +722,12 @@ namespace MyTrafficSystem.Gameplay.Challenge
             laneListText = Label(left.transform, "LaneListText", "", new Vector2(0f, 0f), 22f, false);
             laneListText.alignment = TextAlignmentOptions.TopLeft;
             laneListText.rectTransform.sizeDelta = new Vector2(500f, 450f);
+            cameraBadgeText = Label(camBadgePanel.transform, "CameraBadgeText", "CAM 1", new Vector2(0f, 0f), 28f, true);
+            cameraBadgeText.characterSpacing = 2.5f;
+            cameraBadgeText.fontStyle = FontStyles.Bold;
 
-            monitorButton = CreateButton(centerBottom.transform, "MONITOR", new Vector2(0f, 0f), new Vector2(250f, 54f));
+            monitorButton = CreateButton(centerBottom.transform, "MONITOR", new Vector2(-150f, 0f), new Vector2(250f, 54f));
+            freeRoamButton = CreateButton(centerBottom.transform, "FREE ROAM", new Vector2(150f, 0f), new Vector2(250f, 54f));
             HideResult();
         }
 
@@ -547,6 +737,11 @@ namespace MyTrafficSystem.Gameplay.Challenge
             {
                 monitorButton.onClick.RemoveAllListeners();
                 monitorButton.onClick.AddListener(StartCurrentCameraChallenge);
+            }
+            if (freeRoamButton != null)
+            {
+                freeRoamButton.onClick.RemoveAllListeners();
+                freeRoamButton.onClick.AddListener(EnterFreeRoamMode);
             }
         }
 

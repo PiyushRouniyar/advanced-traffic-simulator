@@ -12410,7 +12410,7 @@ GameObject:
   - component: {fileID: 133491773}
   - component: {fileID: 133491772}
   m_Layer: 0
-  m_Name: CAM-Bargachi
+  m_Name: CAM_01_Downtown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37375,7 +37375,7 @@ GameObject:
   - component: {fileID: 424952758}
   - component: {fileID: 424952760}
   m_Layer: 0
-  m_Name: 'CAM-Hatkhola Chowk '
+  m_Name: CAM10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44282,10 +44282,6 @@ MonoBehaviour:
   sortByPriority: 1
   enforceFixedMountEveryFrame: 1
   allowKeyboardSwitching: 1
-  freeRoamToggleKey: 102
-  freeRoamMoveSpeed: 16
-  freeRoamLookSpeed: 90
-  holdRightMouseToLook: 1
 --- !u!4 &504113459
 Transform:
   m_ObjectHideFlags: 0
@@ -73292,7 +73288,7 @@ GameObject:
   - component: {fileID: 803275539}
   - component: {fileID: 803275538}
   m_Layer: 0
-  m_Name: CAMKanchanbari Chowk
+  m_Name: CAM9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73352,7 +73348,7 @@ GameObject:
   - component: {fileID: 804671333}
   - component: {fileID: 804671332}
   m_Layer: 0
-  m_Name: CAM-Roadcess
+  m_Name: CAM6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97581,7 +97577,7 @@ GameObject:
   - component: {fileID: 1117530912}
   - component: {fileID: 1117530911}
   m_Layer: 0
-  m_Name: CAM-Gudri
+  m_Name: CAM5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98619,7 +98615,7 @@ GameObject:
   - component: {fileID: 1132813019}
   - component: {fileID: 1132813018}
   m_Layer: 0
-  m_Name: CAM-Tinpaini
+  m_Name: CAM7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110557,7 +110553,7 @@ GameObject:
   - component: {fileID: 1269219456}
   - component: {fileID: 1269219455}
   m_Layer: 0
-  m_Name: CAM-Bhrikuti Chowk
+  m_Name: CAM3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121859,7 +121855,7 @@ GameObject:
   - component: {fileID: 1380940118}
   - component: {fileID: 1380940117}
   m_Layer: 0
-  m_Name: CAM-Puspalal Chowk
+  m_Name: CAM8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152103,7 +152099,7 @@ GameObject:
   - component: {fileID: 1731663052}
   - component: {fileID: 1731663051}
   m_Layer: 0
-  m_Name: CAM-Mahendra Chowk
+  m_Name: CAM4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173124,7 +173120,7 @@ GameObject:
   - component: {fileID: 1993983918}
   - component: {fileID: 1993983917}
   m_Layer: 0
-  m_Name: CAM-Devkota Chowk
+  m_Name: CAM2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176518,7 +176514,7 @@ GameObject:
   - component: {fileID: 2037426577}
   - component: {fileID: 2037426576}
   m_Layer: 0
-  m_Name: CAM-Jamungachi
+  m_Name: CAM10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

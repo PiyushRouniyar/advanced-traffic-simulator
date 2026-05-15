@@ -136,7 +136,7 @@ namespace MyTrafficSystem.Gameplay.UI
 
             if (cameraNameText != null)
             {
-                cameraNameText.text = $"{cctvSystem.ActiveCameraLabel}  [{cctvSystem.ActiveCameraIndex + 1}/{Mathf.Max(1, cctvSystem.CameraCount)}]";
+                cameraNameText.text = $"{cctvSystem.ActiveCameraObjectName}  [{cctvSystem.ActiveCameraIndex + 1}/{Mathf.Max(1, cctvSystem.CameraCount)}]";
             }
 
             if (intersectionNameText != null)

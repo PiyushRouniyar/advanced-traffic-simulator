@@ -77,7 +77,7 @@ namespace MyTrafficSystem.Gameplay.UI
 
             if (cctv != null)
             {
-                cameraText.text = $"CAMERA: {cctv.ActiveCameraLabel}";
+                cameraText.text = $"CAMERA: {cctv.ActiveCameraObjectName}";
                 UpdateCameraButtonHighlights();
             }
 

@@ -33,7 +33,11 @@ namespace MyTrafficSystem.Gameplay.Challenge
             if (manager != null)
             {
                 cachedLane = carAI != null ? carAI.CurrentLane : null;
-                manager.ReportIncident(transform.position, cachedLane);
+                TrafficCarAI other = collision.rigidbody != null ? collision.rigidbody.GetComponent<TrafficCarAI>() : null;
+                if (other == null && collision.collider != null) other = collision.collider.GetComponentInParent<TrafficCarAI>();
+                Lane otherLane = other != null ? other.CurrentLane : null;
+                Vector3 impactPoint = collision.contactCount > 0 ? collision.GetContact(0).point : transform.position;
+                manager.ReportIncident(impactPoint, cachedLane, otherLane);
                 cooldownTimer = incidentCooldown;
             }
         }
