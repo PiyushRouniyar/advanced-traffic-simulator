@@ -37,7 +37,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
         [SerializeField] private float sampleInterval = 0.2f;
         [SerializeField] private float fallbackMonitorRadius = 120f;
         [SerializeField] private LayerMask vehicleDetectionMask = ~0;
-        [SerializeField] private bool requireCameraForwardVisibility = true;
+        [SerializeField] private bool requireCameraForwardVisibility = false;
         [SerializeField] private bool strictAssignedLaneOnly = false;
         [SerializeField] private bool showVehicleDetectionOverlay = true;
         [SerializeField] private bool showDetectionStateOnCars = true;
@@ -69,7 +69,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
         private readonly List<TrafficCarAI> enteredVehicles = new List<TrafficCarAI>();
         private readonly List<TrafficCarAI> exitedVehicles = new List<TrafficCarAI>();
         private readonly HashSet<TrafficCarAI> waitingVehicles = new HashSet<TrafficCarAI>();
-        private readonly Dictionary<TrafficCarAI, LineRenderer> markerByVehicle = new Dictionary<TrafficCarAI, LineRenderer>();
+        private readonly Dictionary<TrafficCarAI, GameObject> markerByVehicle = new Dictionary<TrafficCarAI, GameObject>();
         private readonly List<string> cameraNetworkLines = new List<string>();
         private readonly Collider[] networkOverlapBuffer = new Collider[256];
 
@@ -421,11 +421,16 @@ namespace MyTrafficSystem.Gameplay.Challenge
 
         private bool IsCarInsideActiveMonitorContext(TrafficCarAI car)
         {
-            if (car == null || car.CurrentLane == null) return false;
-            if (strictAssignedLaneOnly && monitoredLaneSet.Count > 0 && !monitoredLaneSet.Contains(car.CurrentLane)) return false;
+            if (car == null) return false;
+
+            Lane lane = car.CurrentLane;
+            if (strictAssignedLaneOnly && monitoredLaneSet.Count > 0)
+            {
+                if (lane == null || !monitoredLaneSet.Contains(lane)) return false;
+            }
 
             Vector3 p = car.transform.position;
-            if (!IsPointInsideMonitoringArea(p, car.CurrentLane)) return false;
+            if (!IsPointInsideMonitoringArea(p, lane)) return false;
 
             return true;
         }
@@ -445,7 +450,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             if (requireCameraForwardVisibility)
             {
                 float angle = Vector3.Angle(activeCameraPoint.transform.forward, toPoint.normalized);
-                float allowedAngle = Mathf.Max(65f, activeCameraPoint.FieldOfView * 0.95f);
+                float allowedAngle = Mathf.Max(110f, activeCameraPoint.FieldOfView * 1.15f);
                 if (angle > allowedAngle) return false;
             }
 
@@ -608,7 +613,7 @@ namespace MyTrafficSystem.Gameplay.Challenge
             foreach (TrafficCarAI car in trackedVehicles)
             {
                 if (car == null) continue;
-                if (!markerByVehicle.TryGetValue(car, out LineRenderer marker) || marker == null)
+                if (!markerByVehicle.TryGetValue(car, out GameObject marker) || marker == null)
                 {
                     marker = CreateVehicleMarker(car.transform);
                     markerByVehicle[car] = marker;
@@ -616,38 +621,48 @@ namespace MyTrafficSystem.Gameplay.Challenge
 
                 UpdateVehicleMarkerShape(marker, car);
                 Color c = waitingVehicles.Contains(car) ? alertVehicleColor : movingVehicleColor;
-                marker.startColor = c;
-                marker.endColor = c;
+                ApplyMarkerColor(marker, c);
             }
 
             List<TrafficCarAI> toRemove = new List<TrafficCarAI>();
-            foreach (KeyValuePair<TrafficCarAI, LineRenderer> kv in markerByVehicle)
+            foreach (KeyValuePair<TrafficCarAI, GameObject> kv in markerByVehicle)
             {
                 if (kv.Key == null || !trackedVehicles.Contains(kv.Key))
                 {
-                    if (kv.Value != null) Destroy(kv.Value.gameObject);
+                    if (kv.Value != null) Destroy(kv.Value);
                     toRemove.Add(kv.Key);
                 }
             }
             for (int i = 0; i < toRemove.Count; i++) markerByVehicle.Remove(toRemove[i]);
         }
 
-        private static LineRenderer CreateVehicleMarker(Transform parentCar)
+        private static GameObject CreateVehicleMarker(Transform parentCar)
         {
-            GameObject marker = new GameObject("DetectionMarker");
-            marker.name = "DetectionMarker";
-            marker.transform.SetParent(parentCar, true);
-            LineRenderer lr = marker.AddComponent<LineRenderer>();
-            lr.useWorldSpace = true;
-            lr.loop = true;
-            lr.positionCount = 4;
-            lr.widthMultiplier = 0.06f;
-            lr.alignment = LineAlignment.View;
-            lr.material = new Material(Shader.Find("Sprites/Default"));
-            return lr;
+            GameObject root = new GameObject("DetectionMarker");
+            root.transform.SetParent(parentCar, true);
+
+            for (int i = 0; i < 4; i++)
+            {
+                GameObject strip = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                strip.name = $"Strip_{i + 1}";
+                strip.transform.SetParent(root.transform, false);
+                strip.transform.localScale = new Vector3(0.08f, 0.02f, 0.55f);
+                if (strip.TryGetComponent<Collider>(out Collider col)) Destroy(col);
+                Renderer r = strip.GetComponent<Renderer>();
+                if (r != null)
+                {
+                    r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                    r.receiveShadows = false;
+                    Material m = new Material(Shader.Find("Standard"));
+                    m.EnableKeyword("_EMISSION");
+                    r.sharedMaterial = m;
+                }
+            }
+
+            return root;
         }
 
-        private static void UpdateVehicleMarkerShape(LineRenderer marker, TrafficCarAI car)
+        private static void UpdateVehicleMarkerShape(GameObject marker, TrafficCarAI car)
         {
             if (marker == null || car == null) return;
 
@@ -655,20 +670,40 @@ namespace MyTrafficSystem.Gameplay.Challenge
             Collider col = car.GetComponent<Collider>();
             if (col != null) b = col.bounds;
 
-            float y = b.center.y + b.extents.y + 0.12f;
-            float x = Mathf.Max(0.4f, b.extents.x + 0.15f);
-            float z = Mathf.Max(0.8f, b.extents.z + 0.2f);
-            marker.SetPosition(0, new Vector3(b.center.x - x, y, b.center.z - z));
-            marker.SetPosition(1, new Vector3(b.center.x + x, y, b.center.z - z));
-            marker.SetPosition(2, new Vector3(b.center.x + x, y, b.center.z + z));
-            marker.SetPosition(3, new Vector3(b.center.x - x, y, b.center.z + z));
+            float y = b.max.y + 0.08f;
+            marker.transform.position = new Vector3(b.center.x, y, b.center.z);
+            marker.transform.rotation = Quaternion.Euler(0f, car.transform.eulerAngles.y, 0f);
+
+            float halfWidth = Mathf.Max(0.28f, b.extents.x);
+            float zSize = Mathf.Max(0.6f, b.extents.z * 0.95f);
+            for (int i = 0; i < marker.transform.childCount; i++)
+            {
+                Transform strip = marker.transform.GetChild(i);
+                if (strip == null) continue;
+                float t = i / 3f;
+                float x = Mathf.Lerp(-halfWidth, halfWidth, t);
+                strip.localPosition = new Vector3(x, 0f, 0f);
+                strip.localScale = new Vector3(0.075f, 0.02f, zSize);
+            }
+        }
+
+        private static void ApplyMarkerColor(GameObject marker, Color c)
+        {
+            if (marker == null) return;
+            for (int i = 0; i < marker.transform.childCount; i++)
+            {
+                Renderer r = marker.transform.GetChild(i).GetComponent<Renderer>();
+                if (r == null || r.sharedMaterial == null) continue;
+                r.sharedMaterial.color = c;
+                r.sharedMaterial.SetColor("_EmissionColor", c * 1.85f);
+            }
         }
 
         private void ClearVehicleMarkers()
         {
-            foreach (KeyValuePair<TrafficCarAI, LineRenderer> kv in markerByVehicle)
+            foreach (KeyValuePair<TrafficCarAI, GameObject> kv in markerByVehicle)
             {
-                if (kv.Value != null) Destroy(kv.Value.gameObject);
+                if (kv.Value != null) Destroy(kv.Value);
             }
             markerByVehicle.Clear();
             waitingVehicles.Clear();
