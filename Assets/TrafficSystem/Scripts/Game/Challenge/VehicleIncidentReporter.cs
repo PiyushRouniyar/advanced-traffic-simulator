@@ -29,17 +29,15 @@ namespace MyTrafficSystem.Gameplay.Challenge
             if (cooldownTimer > 0f || collision == null) return;
             if (collision.relativeVelocity.magnitude < minImpactMagnitude) return;
 
-            CameraChallengeManager manager = CameraChallengeManager.Instance;
-            if (manager != null)
-            {
-                cachedLane = carAI != null ? carAI.CurrentLane : null;
-                TrafficCarAI other = collision.rigidbody != null ? collision.rigidbody.GetComponent<TrafficCarAI>() : null;
-                if (other == null && collision.collider != null) other = collision.collider.GetComponentInParent<TrafficCarAI>();
-                Lane otherLane = other != null ? other.CurrentLane : null;
-                Vector3 impactPoint = collision.contactCount > 0 ? collision.GetContact(0).point : transform.position;
-                manager.ReportIncident(impactPoint, cachedLane, otherLane);
-                cooldownTimer = incidentCooldown;
-            }
+            cachedLane = carAI != null ? carAI.CurrentLane : null;
+            TrafficCarAI other = collision.rigidbody != null ? collision.rigidbody.GetComponent<TrafficCarAI>() : null;
+            if (other == null && collision.collider != null) other = collision.collider.GetComponentInParent<TrafficCarAI>();
+            // Only treat true car-to-car collisions as incidents.
+            if (other == null || other == carAI) return;
+            Lane otherLane = other != null ? other.CurrentLane : null;
+            Vector3 impactPoint = collision.contactCount > 0 ? collision.GetContact(0).point : transform.position;
+            TrafficIncidentSystem.ReportCollision(impactPoint, cachedLane, otherLane, carAI, other);
+            cooldownTimer = incidentCooldown;
         }
     }
 }

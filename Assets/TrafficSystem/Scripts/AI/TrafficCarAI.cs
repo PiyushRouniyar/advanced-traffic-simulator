@@ -1,5 +1,7 @@
 using MyTrafficSystem.Lanes;
+using MyTrafficSystem.Gameplay.Challenge;
 using MyTrafficSystem.Pedestrians;
+using MyTrafficSystem.TrafficLights;
 using UnityEngine;
 
 namespace MyTrafficSystem.AI
@@ -28,6 +30,7 @@ namespace MyTrafficSystem.AI
         private int waypointIndex;
         private float currentSpeed;
         private bool lastStopForLight;
+        private float redLightViolationCooldownUntil;
 
         public Lane CurrentLane => currentLane;
         public int CurrentWaypointIndex => waypointIndex;
@@ -126,8 +129,27 @@ namespace MyTrafficSystem.AI
 
             if (Vector3.Distance(transform.position, target.transform.position) <= waypointReachDistance)
             {
+                TryReportRedLightViolation(target);
                 AdvanceLaneProgress();
             }
+        }
+
+        private void TryReportRedLightViolation(Waypoint reachedWaypoint)
+        {
+            if (currentLane == null || reachedWaypoint == null) return;
+            if (Time.time < redLightViolationCooldownUntil) return;
+
+            int stopIndex = currentLane.StopWaypointIndex;
+            var light = currentLane.TrafficLight;
+            if (stopIndex < 0 || light == null) return;
+
+            bool crossingStopSegment = waypointIndex >= Mathf.Max(0, stopIndex - 1);
+            bool violatedRed = crossingStopSegment && light.ShouldStopCars && currentSpeed > 0.75f;
+            if (!violatedRed) return;
+
+            TrafficIntersectionManager intersection = light.GetComponentInParent<TrafficIntersectionManager>();
+            TrafficIncidentSystem.ReportRedLightViolation(reachedWaypoint.transform.position, currentLane, this, intersection);
+            redLightViolationCooldownUntil = Time.time + 2f;
         }
 
         private bool DetectCarAhead(out float distance)

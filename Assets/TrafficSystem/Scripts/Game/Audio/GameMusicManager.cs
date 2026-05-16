@@ -10,6 +10,12 @@ namespace MyTrafficSystem.Gameplay.Audio
         [Header("Tracks")]
         [SerializeField] private AudioClip menuMusic;
         [SerializeField] private AudioClip gameplayMusic;
+        [SerializeField] private AudioClip fallbackMusic;
+
+        [Header("Resources Fallback (optional)")]
+        [SerializeField] private string menuMusicResourcePath = "Audio/menu_music";
+        [SerializeField] private string gameplayMusicResourcePath = "Audio/gameplay_music";
+        [SerializeField] private string fallbackMusicResourcePath = "Audio/background_music";
 
         [Header("Scenes")]
         [SerializeField] private string menuSceneName = "MainMenu";
@@ -52,6 +58,7 @@ namespace MyTrafficSystem.Gameplay.Audio
 
         private void Start()
         {
+            ResolveClipsFromResourcesIfNeeded();
             UpdateTrackForScene(SceneManager.GetActiveScene().name, immediate: true);
         }
 
@@ -70,6 +77,7 @@ namespace MyTrafficSystem.Gameplay.Audio
         {
             bool isMenu = string.Equals(sceneName, menuSceneName, System.StringComparison.OrdinalIgnoreCase);
             AudioClip desired = isMenu ? menuMusic : gameplayMusic;
+            if (desired == null) desired = fallbackMusic;
             if (desired == null) return;
             if (activeSource != null && activeSource.clip == desired && activeSource.isPlaying) return;
 
@@ -110,6 +118,38 @@ namespace MyTrafficSystem.Gameplay.Audio
             to.volume = musicVolume;
             activeSource = to;
             transitionRoutine = null;
+        }
+
+        private void ResolveClipsFromResourcesIfNeeded()
+        {
+            if (menuMusic == null && !string.IsNullOrWhiteSpace(menuMusicResourcePath))
+            {
+                menuMusic = Resources.Load<AudioClip>(menuMusicResourcePath);
+            }
+
+            if (gameplayMusic == null && !string.IsNullOrWhiteSpace(gameplayMusicResourcePath))
+            {
+                gameplayMusic = Resources.Load<AudioClip>(gameplayMusicResourcePath);
+            }
+
+            if (fallbackMusic == null && !string.IsNullOrWhiteSpace(fallbackMusicResourcePath))
+            {
+                fallbackMusic = Resources.Load<AudioClip>(fallbackMusicResourcePath);
+            }
+
+            if (fallbackMusic == null)
+            {
+                AudioClip[] audioClips = Resources.LoadAll<AudioClip>("Audio");
+                if (audioClips != null && audioClips.Length > 0)
+                {
+                    fallbackMusic = audioClips[0];
+                    Debug.Log($"[GameMusicManager] Using fallback clip from Resources/Audio: {fallbackMusic.name}");
+                }
+                else
+                {
+                    Debug.LogWarning("[GameMusicManager] No clip found. Add music to Assets/Resources/Audio or set clip references in inspector.");
+                }
+            }
         }
 
         private AudioSource CreateSource(string name)
