@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using MyTrafficSystem.TrafficLights;
-using System.IO;
 
 namespace MyTrafficSystem.Gameplay.UI
 {
@@ -13,10 +11,8 @@ namespace MyTrafficSystem.Gameplay.UI
     public class FuturisticMainMenuController : MonoBehaviour
     {
         [Header("Flow")]
-        [SerializeField] private string gameplaySceneName = "Gameplay";
-        [SerializeField] private int gameplaySceneBuildIndex = -1;
+        [SerializeField] private string gameplaySceneName = "SampleScene";
         [SerializeField] private float transitionDuration = 0.85f;
-        [SerializeField] private bool forceStartFirstLevelAfterLoad = true;
 
         [Header("Branding")]
         [SerializeField] private string gameTitleLine1 = "URBAN";
@@ -63,7 +59,13 @@ namespace MyTrafficSystem.Gameplay.UI
         public void StartGame()
         {
             if (loading) return;
-            StartCoroutine(StartGameRoutine());
+            StartCoroutine(StartGameRoutine(LaunchMode.Monitor));
+        }
+
+        public void StartFreeRoam()
+        {
+            if (loading) return;
+            StartCoroutine(StartGameRoutine(LaunchMode.FreeRoam));
         }
 
         public void QuitGame()
@@ -75,9 +77,10 @@ namespace MyTrafficSystem.Gameplay.UI
 #endif
         }
 
-        private IEnumerator StartGameRoutine()
+        private IEnumerator StartGameRoutine(LaunchMode launchMode)
         {
             loading = true;
+            GameLaunchContext.SetLaunchMode(launchMode);
             if (fadeGroup != null)
             {
                 float elapsed = 0f;
@@ -100,46 +103,22 @@ namespace MyTrafficSystem.Gameplay.UI
                 yield break;
             }
 
-            while (!load.isDone)
-            {
-                yield return null;
-            }
-
-            // Safety net: ensure gameplay starts even if manager auto-start is disabled in inspector.
-            if (forceStartFirstLevelAfterLoad)
-            {
-                yield return null;
-                MyTrafficSystem.Gameplay.TrafficGameManager gameManager =
-                    Object.FindFirstObjectByType<MyTrafficSystem.Gameplay.TrafficGameManager>(FindObjectsInactive.Include);
-                if (gameManager != null)
-                {
-                    gameManager.StartLevel(0);
-                }
-            }
-
-            EnsureTrafficLightWorldLabelsVisible();
+            while (!load.isDone) yield return null;
         }
 
         private AsyncOperation TryCreateSceneLoadOperation()
         {
-            if (gameplaySceneBuildIndex >= 0 && gameplaySceneBuildIndex < SceneManager.sceneCountInBuildSettings)
+            if (!string.IsNullOrWhiteSpace(gameplaySceneName) && Application.CanStreamedLevelBeLoaded(gameplaySceneName))
             {
-                return SceneManager.LoadSceneAsync(gameplaySceneBuildIndex);
+                Debug.Log($"[MainMenu] Loading scene directly: {gameplaySceneName}");
+                return SceneManager.LoadSceneAsync(gameplaySceneName, LoadSceneMode.Single);
             }
 
-            if (!string.IsNullOrWhiteSpace(gameplaySceneName))
+            Debug.LogError($"[MainMenu] Scene '{gameplaySceneName}' is not in Build Settings. Add Assets/Scenes/SampleScene.unity.");
+            for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
             {
-                for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
-                {
-                    string path = SceneUtility.GetScenePathByBuildIndex(i);
-                    string fileName = Path.GetFileNameWithoutExtension(path);
-                    if (string.Equals(fileName, gameplaySceneName, System.StringComparison.Ordinal))
-                    {
-                        return SceneManager.LoadSceneAsync(gameplaySceneName);
-                    }
-                }
+                Debug.Log($"[MainMenu] Build scene {i}: {SceneUtility.GetScenePathByBuildIndex(i)}");
             }
-
             return null;
         }
 
@@ -183,7 +162,7 @@ namespace MyTrafficSystem.Gameplay.UI
             subtitle.rectTransform.anchoredPosition = new Vector2(0f, -122f);
             subtitle.characterSpacing = 5.2f;
 
-            panelRect = NewRect("GlassPanel", rootCanvas.transform as RectTransform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -185f), new Vector2(420f, 250f));
+            panelRect = NewRect("GlassPanel", rootCanvas.transform as RectTransform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0f, -185f), new Vector2(430f, 320f));
             Image panel = panelRect.gameObject.AddComponent<Image>();
             panel.color = panelTint;
 
@@ -196,10 +175,12 @@ namespace MyTrafficSystem.Gameplay.UI
             controlsTitle.characterSpacing = 3f;
             controlsTitle.color = new Color(accent.r, accent.g, accent.b, 0.42f);
 
-            Button startButton = MakeButton(panelRect, "START GAME", new Vector2(0f, 22f));
-            Button quitButton = MakeButton(panelRect, "QUIT", new Vector2(0f, -58f));
+            Button startButton = MakeButton(panelRect, "START GAME", new Vector2(0f, 68f));
+            Button roamButton = MakeButton(panelRect, "FREE ROAM", new Vector2(0f, -6f));
+            Button quitButton = MakeButton(panelRect, "QUIT", new Vector2(0f, -80f));
 
             startButton.onClick.AddListener(StartGame);
+            roamButton.onClick.AddListener(StartFreeRoam);
             quitButton.onClick.AddListener(QuitGame);
 
             RectTransform fadeRect = NewRect("Fade", rootCanvas.transform as RectTransform, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -215,24 +196,6 @@ namespace MyTrafficSystem.Gameplay.UI
         {
             if (Object.FindFirstObjectByType<EventSystem>(FindObjectsInactive.Include) != null) return;
             _ = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
-        }
-
-        private static void EnsureTrafficLightWorldLabelsVisible()
-        {
-            TrafficLightDebugSettings.ShowTrafficLightDebugInfo = true;
-            TrafficLightDebugSettings.ShowWorldLabels = true;
-            TrafficLightDebugSettings.ShowExtraInfo = true;
-
-            TrafficLightController[] lights = Object.FindObjectsByType<TrafficLightController>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-            for (int i = 0; i < lights.Length; i++)
-            {
-                TrafficLightController light = lights[i];
-                if (light == null) continue;
-                if (light.GetComponent<TrafficLightWorldLabel>() == null)
-                {
-                    light.gameObject.AddComponent<TrafficLightWorldLabel>();
-                }
-            }
         }
 
         private Button MakeButton(RectTransform parent, string label, Vector2 pos)

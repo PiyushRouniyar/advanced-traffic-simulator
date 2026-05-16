@@ -15,16 +15,58 @@ namespace MyTrafficSystem.Gameplay.FreeMode
         private GameObject activeVehicle;
         private FreeModeCameraFollow followRig;
         private bool active;
+        private bool hasLoggedReady;
 
         public bool IsFreeModeActive => active;
+        public bool IsReady { get; private set; }
+        public float CurrentSpeedKph
+        {
+            get
+            {
+                if (activeVehicle == null) return 0f;
+                FreeModeVehicleController controller = activeVehicle.GetComponent<FreeModeVehicleController>();
+                if (controller != null) return controller.SpeedMps * 3.6f;
+                Rigidbody rb = activeVehicle.GetComponent<Rigidbody>();
+                return rb != null ? rb.linearVelocity.magnitude * 3.6f : 0f;
+            }
+        }
 
-        public void EnterFreeMode()
+        private void Awake()
+        {
+            EnsureReady(log: false);
+        }
+
+        public bool EnsureReady(bool log = true)
         {
             if (cctvSystem == null) cctvSystem = FindFirstObjectByType<CCTVCameraSystem>(FindObjectsInactive.Include);
             if (gameplayCamera == null) gameplayCamera = Camera.main;
             if (autoFindSpawnPoints || spawnPoints == null || spawnPoints.Length == 0)
             {
                 spawnPoints = FindObjectsByType<FreeModeSpawnPoint>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            }
+
+            IsReady = gameplayCamera != null && spawnPoints != null && spawnPoints.Length > 0;
+            if (log)
+            {
+                if (IsReady && !hasLoggedReady)
+                {
+                    Debug.Log($"[OK] {nameof(FreeModeManager)} ready. Spawns: {spawnPoints.Length}");
+                    hasLoggedReady = true;
+                }
+                else if (!IsReady)
+                {
+                    Debug.LogWarning($"[WARN] {nameof(FreeModeManager)} not ready. Camera={gameplayCamera != null}, SpawnPoints={(spawnPoints != null ? spawnPoints.Length : 0)}");
+                }
+            }
+
+            return IsReady;
+        }
+
+        public void EnterFreeMode()
+        {
+            if (!EnsureReady())
+            {
+                return;
             }
 
             FreeModeSpawnPoint spawn = ChooseSpawnPoint();

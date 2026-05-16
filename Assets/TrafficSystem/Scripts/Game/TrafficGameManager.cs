@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MyTrafficSystem.Gameplay.CCTV;
+using MyTrafficSystem.Gameplay.FreeMode;
 using MyTrafficSystem.Gameplay.Level;
 using MyTrafficSystem.Gameplay.Systems;
 using MyTrafficSystem.Gameplay.UI;
@@ -23,6 +24,7 @@ namespace MyTrafficSystem.Gameplay
         [SerializeField] private TrafficObjectiveSystem objectiveSystem;
         [SerializeField] private TrafficScoreSystem scoreSystem;
         [SerializeField] private TrafficGameHUD hud;
+        [SerializeField] private FreeModeManager freeModeManager;
 
         [Header("Gameplay")]
         [SerializeField] private bool autoStartFirstLevel = true;
@@ -33,28 +35,39 @@ namespace MyTrafficSystem.Gameplay
         private int activeLevelIndex = -1;
         private float introTimer;
         private float elapsedLevel;
+        private bool hasLoggedReady;
 
         public TrafficGameState State => state;
+        public bool IsReady { get; private set; }
 
         private void Awake()
         {
-            if (cctvCameraSystem == null) cctvCameraSystem = FindFirstObjectByType<CCTVCameraSystem>(FindObjectsInactive.Include);
-            if (congestionMonitor == null) congestionMonitor = FindFirstObjectByType<TrafficCongestionMonitor>(FindObjectsInactive.Include);
-            if (pressureSystem == null) pressureSystem = FindFirstObjectByType<TrafficPressureSystem>(FindObjectsInactive.Include);
-            if (objectiveSystem == null) objectiveSystem = FindFirstObjectByType<TrafficObjectiveSystem>(FindObjectsInactive.Include);
-            if (scoreSystem == null) scoreSystem = FindFirstObjectByType<TrafficScoreSystem>(FindObjectsInactive.Include);
-            if (hud == null) hud = FindFirstObjectByType<TrafficGameHUD>(FindObjectsInactive.Include);
-
-            if (objectiveSystem != null)
-            {
-                objectiveSystem.ObjectiveFailed += OnObjectiveFailed;
-            }
+            EnsureReferences(log: false);
         }
 
         private void Start()
         {
+            EnsureReferences();
             SetState(TrafficGameState.MainMenu);
-            if (autoStartFirstLevel)
+            bool startedFromLaunchContext = false;
+            if (GameLaunchContext.HasPendingLaunchMode)
+            {
+                LaunchMode launchMode = GameLaunchContext.ConsumeLaunchMode();
+                StartLevel(Mathf.Clamp(startLevelIndex, 0, levels.Count - 1));
+                startedFromLaunchContext = true;
+
+                if (launchMode == LaunchMode.FreeRoam)
+                {
+                    introTimer = 0f;
+                    StartCoroutine(EnterFreeRoamAfterStart());
+                }
+                else
+                {
+                    StartCoroutine(EnsureMonitorModeAfterStart());
+                }
+            }
+
+            if (!startedFromLaunchContext && autoStartFirstLevel)
             {
                 StartLevel(Mathf.Clamp(startLevelIndex, 0, levels.Count - 1));
             }
@@ -98,6 +111,7 @@ namespace MyTrafficSystem.Gameplay
 
         public void StartLevel(int index)
         {
+            EnsureReferences(log: false);
             if (index < 0 || index >= levels.Count) return;
 
             activeLevelIndex = index;
@@ -211,6 +225,65 @@ namespace MyTrafficSystem.Gameplay
         {
             state = next;
             if (hud != null) hud.SetGameState(state.ToString());
+        }
+
+        private System.Collections.IEnumerator EnterFreeRoamAfterStart()
+        {
+            float timeout = 6f;
+            while (state != TrafficGameState.Playing && timeout > 0f)
+            {
+                timeout -= Time.deltaTime;
+                yield return null;
+            }
+
+            if (freeModeManager == null) freeModeManager = FindFirstObjectByType<FreeModeManager>(FindObjectsInactive.Include);
+            freeModeManager?.EnterFreeMode();
+        }
+
+        private System.Collections.IEnumerator EnsureMonitorModeAfterStart()
+        {
+            float timeout = 6f;
+            while (state != TrafficGameState.Playing && timeout > 0f)
+            {
+                timeout -= Time.deltaTime;
+                yield return null;
+            }
+
+            if (freeModeManager == null) freeModeManager = FindFirstObjectByType<FreeModeManager>(FindObjectsInactive.Include);
+            freeModeManager?.ExitFreeMode();
+        }
+
+        public bool EnsureReferences(bool log = true)
+        {
+            if (cctvCameraSystem == null) cctvCameraSystem = FindFirstObjectByType<CCTVCameraSystem>(FindObjectsInactive.Include);
+            if (congestionMonitor == null) congestionMonitor = FindFirstObjectByType<TrafficCongestionMonitor>(FindObjectsInactive.Include);
+            if (pressureSystem == null) pressureSystem = FindFirstObjectByType<TrafficPressureSystem>(FindObjectsInactive.Include);
+            if (objectiveSystem == null) objectiveSystem = FindFirstObjectByType<TrafficObjectiveSystem>(FindObjectsInactive.Include);
+            if (scoreSystem == null) scoreSystem = FindFirstObjectByType<TrafficScoreSystem>(FindObjectsInactive.Include);
+            if (hud == null) hud = FindFirstObjectByType<TrafficGameHUD>(FindObjectsInactive.Include);
+            if (freeModeManager == null) freeModeManager = FindFirstObjectByType<FreeModeManager>(FindObjectsInactive.Include);
+
+            if (objectiveSystem != null)
+            {
+                objectiveSystem.ObjectiveFailed -= OnObjectiveFailed;
+                objectiveSystem.ObjectiveFailed += OnObjectiveFailed;
+            }
+
+            IsReady = cctvCameraSystem != null && congestionMonitor != null && objectiveSystem != null && scoreSystem != null && freeModeManager != null;
+            if (log)
+            {
+                if (IsReady && !hasLoggedReady)
+                {
+                    Debug.Log($"[OK] {nameof(TrafficGameManager)} initialized");
+                    hasLoggedReady = true;
+                }
+                else if (!IsReady)
+                {
+                    Debug.LogWarning($"[WARN] {nameof(TrafficGameManager)} refs incomplete. CCTV={cctvCameraSystem != null}, Congestion={congestionMonitor != null}, Objective={objectiveSystem != null}, Score={scoreSystem != null}, FreeMode={freeModeManager != null}");
+                }
+            }
+
+            return IsReady;
         }
     }
 }
